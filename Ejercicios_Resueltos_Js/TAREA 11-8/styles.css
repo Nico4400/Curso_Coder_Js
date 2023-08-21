@@ -1,0 +1,51 @@
+.user-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.user-last_name {
+  font-size: 1rem;
+  margin: 0;
+  color: #666;
+}
+
+.user-email,
+.user-gender,
+.user-app_name,
+.user-country,
+.user-phone,
+.user-address {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.user-phone {
+  color: #007bff;
+}
+
+.botones, .buscador{
+  display: flex;
+  padding-top: 5vh;
+  align-content: center;
+  justify-content: center;
+}
+  /* Optional: Add media queries for responsive design */
+  @media (max-width: 768px) {
+    .user-card {
+      max-width: 100%;
+    }
+  }
