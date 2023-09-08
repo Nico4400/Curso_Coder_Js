@@ -152,19 +152,25 @@ function generarTarjetas(){
     }
     tarjeta(productos)
 
-    const agregarCarrito = document.querySelectorAll(".form-agregarCarrito");
-    console.log(agregarCarrito)
-
+    
     // evento para agregar al carrito
-    agregarCarrito.forEach(agregar => {
-        agregar.addEventListener("submit", (e) => {
-            console.log("me clickean")
-            e.preventDefault()
-            const id = parseInt(e.submitter.id)
-            // console.log(id)
-            agregarAlCarrito(id)
-        })
-    }) 
+    function agrego (){        
+
+        const agregarCarrito = document.querySelectorAll(".form-agregarCarrito");
+        console.log(agregarCarrito)
+
+        agregarCarrito.forEach(agregar => {
+            agregar.addEventListener("submit", (e) => {
+                console.log("me clickean")
+                e.preventDefault()
+                const id = parseInt(e.submitter.id)
+                // console.log(id)
+                agregarAlCarrito(id)
+            })
+        }) 
+    }
+
+    agrego ()
 
     // pongo filtros
 
@@ -212,11 +218,14 @@ function generarTarjetas(){
     
             if ( e.target.value === "todasLasCategorias" ) {
                 tarjeta(productos)
+                agrego ()
             } else if ( e.target.value === "null" ) {
                 tarjeta(filtrarCategoriaPorNulo(productos))
+                agrego ()
             } else {
                 tarjeta(filtrarPorCategoria(e.target.value, productos))
-                historialCategoria.push(e.target.value)  
+                historialCategoria.push(e.target.value)
+                agrego ()  
             }
             // Convertir el objeto a una cadena JSON
             const historialCategorias = JSON.stringify(historialCategoria);
@@ -224,7 +233,7 @@ function generarTarjetas(){
             localStorage.setItem('historialCategorias', historialCategorias)
         })
     }
-    
+
     filtros()
 }
 

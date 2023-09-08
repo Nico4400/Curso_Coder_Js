@@ -625,3 +625,1758 @@ if (year < 2015) {
 En el código de arriba, JavaScript primero revisa si year < 2015. Si esto es falso, continúa a la siguiente condición year > 2015. Si esta también es falsa, mostrará la última alert.
 
 Podría haber más bloques else if. Y el último else es opcional.
+
+_____________________________________________________________________
+
+CLASE 3 | BUCLES 
+
+Una de las principales ventajas de la programación es la posibilidad de crear bucles y repeticiones para tareas específicas, y que no tengamos que realizar el mismo código varias veces de forma manual.
+
+Los bucles nos permiten sumplificar nuestro código, que sea más fácil de leer e incluso más fácil de modificar y mantener.
+
+CONDICIÓN
+
+Al igual que en los condicionales if, en los bucles se va a evaluar una condición para saber si se debe seguir repitiendo el bucle o se debe finalizar. Habitualmente, lo que se suele hacer es establecer que si la condición es verdadera, se vuelve a repetir el bucle. Por el contratio, si es falsa, se finaliza. Sin embargo, esta condición puede variar dependiendo de la implementación que le indique el programador.
+
+ITERACIÓN
+
+Otro concepto que usaremos mucho dentro de un bucle es el concepto de iteración. Esto se refuere a cada una de las repeticiones de un bucle. 
+
+INCREMENTO
+
+Al igual que tenemos un contador en un bucle, también debemos tener una parte donde hagamos un incremento (o decremento) de dicho contador. Si no lo tuvieramos, el contador no cambiaría y la condición síempre sería verdadera, por lo que sería imposible salir del bucle.
+
+BUCLE INFINITO
+
+Cuando estamos aprendiendo a programar, es muy común que cometamos un error creando el bucle y nos quedemos en un bucle infinito, es decir, en una situación donde nuestro programa se queda eternamiente en bucle y nunca termina. Como programadores, esta situación siempre hay que evitarla. Para ello, lo que debemos hacer es siempre comprobar que existe un incremento (o decremento) y que en algún momento la condición va a ser falsa y se podrá salir del bucle.
+
+- Tener en cuenta que de producirse un bucle infinito, nuestro programa se uqedará atascado y tendremos que forzar para finalizarlo. Ten siempre cuidado al crear un bucle para que no sea infinito. -
+
+
+for loop
+
+Sintaxis
+
+for ([initializacion]); [condicion]; [expresion-final]) {
+   // sentencias
+}
+
+La sentencia for en javascript consiste de tres expresiones y una declaración:
+
+- inicialización - Sucede antes de la primera ejecución del bucle. Esta expresión es comúnmente utilizada para crear contadores. Las variables creadas tienen un alcance (scope) limitado al cuerpo del bucle. Una vez que el bucle ha terminado su ejecución las variables son destruidas.
+
+- condición - Expresión que es evaluada antes de la ejecución de cada iteración. Si se omite, esta expresión es evaluada como verdadera. Si devuelve true, la sentencia del cuerpo del bucle se ejecuta. Si devuelve false, el bucle se detiene.
+
+- expresión-final - Expresión que se ejecuta luego de cada iteración. Usualmente es utilizada para incrementar un contador. Pero también puede ser utilizada para decrementar el contador.
+
+- sentencia o declaración - Código que será ejecutado repetidamente por el bucle.
+
+Cualquiera de estas tres expresiones o la sentencia del cuerpo del bucle pueden ser omitidas. Los bucles For son comúnmente utilizados para contar un cierto número de iteraciones para repetir una sentencia. Puedes utilizar una sentencia break para salir del bucle antes que la expresión de condición devuelva false.
+
+EJEMPLO
+
+for (i=1;i<=6;i++) { 
+    // document.write("<H" + i + ">Encabezado de nivel " + i + "</H" + i + ">") 
+    document.write(`<h2>Este es el encabezado ${i}</h2>`)
+}
+
+while loop
+
+El bucle while empieza por evaluar la condición. Si la condición es verdadera (devuelve true), entonces las sentencias son ejecutadas. Si la condición es falsa (devuelve false), entonces las sentencias no son ejecutadas. Luego el bucle finaliza.
+
+Aquí la sintaxis del bucle while:
+
+Sintaxis:
+
+while (condicion)
+
+{
+
+  sentencia(s);
+
+}
+
+- sentencia(s): Una sentencia es código que se ejecuta si la condición devuelve verdadero ( true ).
+
+- condición: Es una expresión booleana (Boolean) que es evaluada antes de cada paso (iteración) por el bucle. Si esta condición evalúa a verdadero ( true ), las sentencias son ejecutadas. Cuando la condición evalúa a falso ( false ), la ejecución continúa con la siguiente sentencia luego del bucle while.
+
+EJEMPLO
+
+let i = 0;
+while (i < 3) { // muestra 0, luego 1, luego 2
+  alert( i );
+  i++;
+}
+
+
+
+
+La sentencia "switch"
+
+Una sentencia switch puede reemplazar múltiples condiciones if.
+
+Provee una mejor manera de comparar un valor con múltiples variantes.
+
+switch(x) {
+  case 'valor1':  // if (x === 'valor1')
+    ...
+    [break]
+
+  case 'valor2':  // if (x === 'valor2')
+    ...
+    [break]
+
+  default:
+    ...
+    [break]
+}
+
+EJEMPLO
+
+let a = 2 + 2;
+
+switch (a) {
+  case 3:
+    alert( 'Muy pequeño' );
+    break;
+  case 4:
+    alert( '¡Exacto!' );
+    break;
+  case 5:
+    alert( 'Muy grande' );
+    break;
+  default:
+    alert( "Desconozco estos valores" );
+}
+
+Aquí el switch inicia comparando a con la primera variante case que es 3. La comparación falla.
+
+Luego 4. La comparación es exitosa, por tanto la ejecución empieza desde case 4 hasta el break más cercano.
+
+Si no existe break entonces la ejecución continúa con el próximo case sin ninguna revisión.
+
+Agrupamiento de “case”
+Varias variantes de case los cuales comparten el mismo código pueden ser agrupadas.
+
+Por ejemplo, si queremos que se ejecute el mismo código para case 3 y case 5:
+
+let a = 2 + 2;
+
+switch (a) {
+  case 4:
+    alert('¡Correcto!');
+    break;
+
+  case 3:                    // (*) agrupando dos cases
+  case 5:
+    alert('¡Incorrecto!');
+    alert("¿Por qué no tomas una clase de matemáticas?");
+    break;
+
+  default:
+    alert('El resultado es extraño. Realmente.');
+}
+
+TAREA: SOBREESCRIBIR EL SIGUIENTE SWITCH EN IF
+
+switch (navegador) {
+  case 'Edge':
+    alert( "¡Tienes Edge!" );
+    break;
+
+  case 'Chrome':
+  case 'Firefox':
+  case 'Safari':
+  case 'Opera':
+    alert( 'Esta bien, soportamos estos navegadores también' );
+    break;
+
+  default:
+    alert( '¡Esperamos que esta página se vea bien!' );
+}
+
+--------------------------------------------------------------------------
+
+CLASE 4: FUNCIONES 
+
+Las funciones son bloques de código que solucionan un problema específico para ser reutilizados. Existen dos tipos de funciones: declarativas y expresivas.
+
+Ya hemos visto ejemplos de funciones integradas, como alert(message), prompt(message, default) y confirm(question). Pero también podemos crear funciones propias.
+
+QUÉ SON LAS FUNCIONES DECLARATIVAS?
+
+- En JavaScript, las funciones declarativas se las declara con la palabra reservada function.
+
+CÓMO DECLARAR UNA FUNCIÓN DECLARATIA?
+
+- La declaración de una función declarativa está constituido por las siguientes partes:
+
+* La palabra reservada function.
+* El nombre de la función: el cual será guardado como referencia en memoria.
+* Los parámetros: están envueltas en paréntesis (), son variables propias de la función y deberán utilizarse en el contenido. Hacen referencia a los argumentos en la invocación.
+* El contenido: está envuelto por llaves {}, contendrá las líneas de código correspondientes a la lógica del problema.
+* El valor retornado: es un único valor que devuelve la función cuando es llamada. Se lo especifica por la palabra reservada return. Si no existe, la función devolverá un valor undefined por defecto.
+
+SINTAXIS
+
+/* 
+function nombre (parámetros) {
+    contenido
+    return valor
+} 
+*/
+
+
+EJEMPLO
+
+// Declaración
+function suma (a,b){
+    return a + b
+}
+
+
+De esta manera, definimos la lógica de la función, pero no la estamos utilizando. Para generar los valores es necesario invocar la función en el código según sea necesario.
+
+CÓMO INVOCAR UNA FUNCIÓN DECLARATIVA?
+
+La invocación o llamada es la manera que utilizamos las funciones para utilizar el valor de retorno (return) según ciertos argumentos. La invocación de la función declarativa está constituido por dos partes:
+
+- El nombre de la función especificada en la declaración.
+- Los argumentos, son los valores para cada uno de parámetros de la función envueltos entre paréntesis.
+
+EJEMPLO
+
+// Invocación
+suma(2,3)
+// nombre(argumentos)
+
+La invocación sirve para emplear una función con diferentes argumentos y guardarlos en una variable.
+
+const resultado1 = suma(2,3)
+const resultado2 = suma(4,6)
+const resultado3 = suma(10,12)
+
+console.log(resultado1) //5
+console.log(resultado2) //10
+console.log(resultado3) //22
+
+También existen funciones que simplemente se invocan, pero debes tener en cuenta que retornan por defecto undefined.
+
+// Declaración
+function saludar(nombre){
+    console.log("Hola " + nombre) 
+}
+// Invocaciones
+saludar("JavaScript") //"Hola JavaScript"
+saludar("Carola") // "Hola Carola"
+
+QUÉ SON LAS FUNCIONES EXPRESIVAS O ANÓNIMAS
+
+Las funciones expresivas o anónimas consisten en guardar la función en una variable. Tienen la misma declaración e invocación que las funciones declarativas. La diferencia consiste en no especificar un nombre en la función, sino que utiliza el nombre de la variable.
+
+// Declaración
+var suma = function (a, b) {
+  return a + b
+}
+// Invocación
+var resultado = suma(2, 2)
+
+console.log(resultado) //4
+
+
+DIFERENCIA ENTRE UNA FUNCIÓN CON NOMBRE Y UNA ANÓNIMA 
+
+- Cuando declaramos una función anónima no puede ser procesada hasta que el intérprete llegue a donde está declarada. El navegador va leyendo la página de arriba abajo, entonces la llamada a la función anónima debe estar siempre más abajo.
+
+- En cambio, si se trata de una función con nombre, el intérprete lo primero que hace es buscar las declaraciones las variables y funciones que puedan existir. Después comienza a leer línea por línea. De modo que podemos poner la llamada a una función antes de que ésta haya sido declarada.
+
+ÁMBITO DE LAS VARIABLES 
+
+Las variables que se declaran dentro de una función sólo existen durante la ejecución de esa función. Son variables locales. Aunque exista otra variable con el mismo nombre fuera de la función, una no modifia a la otra.
+
+EJ
+
+function fechaHoy() {
+    //fecha es una variable local de la función
+    const fecha = new Date();
+    return fecha;
+}
+
+También podemos utilizar una variable global dentro de una función y que los cambios que se hagan afecten a la misma.
+
+let diaDeHoy;
+
+function fechaHoy() {
+    //fecha es una variable local de la función
+    const fecha = new Date();
+    diaDeHoy = fecha;
+};
+
+console.log(diaDeHoy) ---> mostrará la fecha actual
+
+VARIABLES GLOBALES 
+
+- Variables declaradas fuera de cualquier función, como la variable diaDeHoy en el código anterior, se llaman globales.
+
+- Las variables globales son visibles desde cualquier función (a menos que se les superpongan variables locales con el mismo nombre).
+
+Es una buena práctica reducir el uso de variables globales. El código moderno tiene pocas o ninguna variable global. La mayoría de las variables residen en sus funciones. Aunque a veces puede justificarse almacenar algunos datos a nivel de proyecto.
+
+FUNCIONES FLECHA
+
+Hay otra sintaxis muy simple y concisa para crear funciones, que a menudo es mejor que las Expresiones de funciones.
+
+Se llama “funciones de flecha”, porque se ve así:
+
+const func = (arg1, arg2, ..., argN) => expression;
+
+Esto crea una función func que acepta los parámetros arg1..argN, luego evalúa la expression del lado derecho mediante su uso y devuelve su resultado.
+
+En otras palabras, es la versión más corta de:
+
+let func = function(arg1, arg2, ..., argN) {
+  return expression;
+};
+
+let sum = (a, b) => a + b;
+
+/* Esta función de flecha es una forma más corta de:
+
+let sum = function(a, b) {
+  return a + b;
+};
+*/
+
+alert( sum(1, 2) ); // 3
+
+Como puedes ver, (a, b) => a + b significa una función que acepta dos argumentos llamados a y b. Tras la ejecución, evalúa la expresión a + b y devuelve el resultado.
+
+Si solo tenemos un argumento, se pueden omitir paréntesis alrededor de los parámetros, lo que lo hace aún más corto.
+
+Por ejemplo:
+
+let double = n => n * 2;
+// Más o menos lo mismo que: let double = function(n) { return n * 2 }
+
+alert( double(3) ); // 6
+Si no hay parámetros, los paréntesis estarán vacíos; pero deben estar presentes:
+
+let sayHi = () => alert("¡Hola!");
+
+sayHi();
+Las funciones de flecha se pueden usar de la misma manera que las expresiones de función.
+
+Por ejemplo, para crear dinámicamente una función:
+
+let age = prompt("What is your age?", 18);
+
+let welcome = (age < 18) ?
+  () => alert('¡Hola!') :
+  () => alert("¡Saludos!");
+
+welcome();
+Las funciones de flecha pueden parecer desconocidas y poco legibles al principio, pero eso cambia rápidamente a medida que los ojos se acostumbran a la estructura.
+
+Son muy convenientes para acciones simples de una línea, cuando somos demasiado flojos para escribir muchas palabras.
+
+_______________________________________________________________________________
+
+CLASE 5: OBJETOS 
+
+Los números, los booleanos y los strings son los átomos que constituyen las
+estructuras de datos. Sin embargo, muchos tipos de información requieren más de un átomo. Los objetos nos permiten agrupar valores—incluidos otros objetos— para construir estructuras más complejas.
+
+Los programas que hemos construido hasta ahora han estado limitados por el hecho de que estaban operando solo en tipos de datos simples.
+
+Como aprendimos hay ocho tipos de datos en JavaScript. Siete de ellos se denominan “primitivos”, porque sus valores contienen solo un dato (sea un string, un número o lo que sea).
+
+En contraste, los objetos son usados para almacenar colecciones de varios datos y entidades más complejas asociados con un nombre clave. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar.
+
+Podemos crear un objeto usando las llaves {…} con una lista opcional de propiedades. Una propiedad es un par “key:value”, donde key es un string (también llamado “nombre clave”), y value puede ser cualquier cosa. 
+Para fines prácticos de la lección, nos referiremos a este par de conceptos como “clave:valor”.
+
+let user = new Object(); // sintaxis de "constructor de objetos"
+let user = {};  // sintaxis de "objeto literal"
+
+- Normalmente se utilizan las llaves {...}. Esa declaración se llama objeto literal.
+
+- Podemos poner inmediatamente algunas propiedades dentro de {...} como pares “clave:valor”:
+
+let user = {     // un objeto
+  name: "John",  // En la clave "name" se almacena el valor "John"
+  age: 30        // En la clave "age" se almacena el valor 30
+};
+
+- Una propiedad tiene una clave (también conocida como “nombre” o “identificador”) antes de los dos puntos ":" y un valor a la derecha.
+
+- En el objeto user hay dos propiedades:
+
+* La primera propiedad tiene la clave "name" y el valor "John".
+* La segunda tienen la clave "age" y el valor 30.
+
+TAMBIÉN PODEMOS AGREGAR, ELIMINAR Y LEER ARCHIVOS DE ÉL EN CUALQUIER MOMENTO
+
+- Se puede acceder a los valores de las propiedades utilizando la notación de punto.
+
+// Obteniendo los valores de las propiedades del objeto:
+alert( user.name ); // John
+alert( user.age ); // 30
+
+- El valor puede ser de cualquier tipo. Agreguemos uno booleano:
+
+user.isAdmin = true;
+
+- Para eliminar una propiedad podemos usar el operador delete:
+
+delete user.age;
+
+- También podemos nombrar propiedades con más de una palabra. Pero, de ser así, debemos colocar la clave entre comillas "...":
+
+let user = {
+  name: "John",
+  age: 30,
+  "likes birds": true  // Las claves con más de una palabra deben ir entre comillas
+};
+
+- La última propiedad en la lista puede terminar con una coma:
+
+let user = {
+  name: "John",
+  age: 30,
+}
+
+- Eso se llama una coma “final” o “colgante”. Facilita agregar, eliminar y mover propiedades, porque todas las líneas se vuelven similares.
+
+CORCHETES
+
+- La notación de punto no funciona para acceder a propiedades con claves de más de una palabra:
+
+// Esto nos daría un error de sintaxis
+user.likes birds = true
+
+- JavaScript no entiende eso. Piensa que hemos accedido a user.likes y entonces nos da un error de sintaxis cuando aparece el inesperado birds.
+
+- El punto requiere que la clave sea un identificador de variable válido. Eso implica que: no contenga espacios, no comience con un dígito y no incluya caracteres especiales ($ y _ sí se permiten).
+
+- Existe una “notación de corchetes” alternativa que funciona con cualquier string:
+
+let user = {};
+
+// asignando
+user["likes birds"] = true;
+
+// obteniendo
+alert(user["likes birds"]); // true
+
+// eliminando
+delete user["likes birds"];
+
+Ahora todo está bien. Nota que el string dentro de los corchetes está adecuadamente entre comillas (cualquier tipo de comillas servirían).
+
+Los corchetes también brindan una forma de obtener el nombre de la propiedad desde el resultado de una expresión (a diferencia de la cadena literal). Por ejemplo, a través de una variable:
+
+let key = "likes birds";
+
+// Tal cual: user["likes birds"] = true;
+user[key] = true;
+
+- Aquí la variable key puede calcularse en tiempo de ejecución o depender de la entrada del usuario y luego lo usamos para acceder a la propiedad. Eso nos da mucha flexibilidad.
+
+Por ejemplo:
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+let key = prompt("¿Qué te gustaría saber acerca del usuario?", "name");
+
+// acceso por medio de una variable
+alert( user[key] ); // John (si se ingresara "name")
+
+- La notación de punto no puede ser usada de manera similar:
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+let key = "name";
+alert( user.key ) // undefined
+
+____________________________________________________________________
+
+CLASE 6: ARRAY
+
+Los objetos te permiten almacenar colecciones de datos a través de nombres. Eso está bien.
+
+Pero a menudo necesitamos una colección ordenada, donde tenemos un 1ro, un 2do, un 3er elemento y así sucesivamente. Por ejemplo, necesitamos almacenar una lista de algo: usuarios, bienes, elementos HTML, etc.
+
+No es conveniente usar objetos aquí, porque no proveen métodos para manejar el orden de los elementos. No podemos insertar una nueva propiedad “entre” los existentes. Los objetos no están hechos para eso.
+
+Existe una estructura llamada Array (llamada en español arreglo o matriz/vector) para almacenar colecciones ordenadas.
+
+QUÉ ES UN ARRAY?
+
+- Un array es una colección o agrupación de elementos en una misma variable, cada uno de ellos ubicado por la posición que ocpa en el array. En algunas ocasiones también se les suelen llamar arreglos o vectores. En JavaScript, se pueden definir de varias formas:
+
+Con el constructor new Array:
+
+// Forma tradicional (no se suele usar en Javascript)
+const letters = new Array("a", "b", "c");   // Array con 3 elementos
+const letters = new Array(3);               // Array vacío de tamaño 3
+
+// Mediante literales (notación preferida)
+const letters = ["a", "b", "c"];  // Array con 3 elementos
+const letters = [];               // Array vacío (0 elementos)
+const letters = ["a", 5, true];   // Array mixto (String, Number, Boolean)
+
+- Al contrario que muchos otros lenguajes de programación, Javascript permite que se puedan realizar arrays de tipo mixto, no siendo obligatorio que todos los elementos sean del mismo tipo de dato.
+
+OJO: Al crear un array con new Array(size) hay varios matices que merece la pena mencionar. Lo primero, si sólo se indica un parámetro numérico size, Javascript creará un array vacío de size elementos. Es decir, no es lo mismo que const a = [3], donde creamos un array con un elemento 3. Por otro lado, new Array(size) realmente crea un array vacío que aún no ha sido rellenado con nada (esto hace que sea más óptimo para arrays grandes) y aunque es equivalente, no es exactamente igual new Array(3) que [undefined, undefined, undefined].
+
+ACCESO A ELEMENTOS DEL ARRAY
+
+Al igual que los string, saber el número elementos que tiene un array es muy sencillo. Sólo hay que acceder a la propiedad .length, que nos devolverá el número de elementos existentes en un array:
+
+EJ:
+
+const frutas = [ "banana", "manzana", "naranja"]
+
+frutas.length ---> 3
+
+OPERADOR []
+
+Por otro lado, si lo que queremos es acceder a un elemento específico del array, no hay más que utilizar el operador [], al igual que lo podríamos hacer con los STRINGS para acceder a un carácter concreto. En este caso, accedemos a la posición del elemento que queremos recuperar sobre el array:
+
+const letters = ["a", "b", "c"];
+
+letters.length;   // 3
+letters[0];       // 'a'
+letters[2];       // 'c'
+letters[5];       // undefined
+
+Recuerda que las posiciones empiezan a contar desde 0 y que si intentamos acceder a una posición que no existe (mayor del tamaño del array), nos devolverá un undefined.
+
+El operador [] no sólo nos permite obtener o acceder a un elemento del array, sino que también nos permite modificar un elemento específico del array, si utilizamos la asignación:
+
+const letters =  ["a", "b", "c"];
+
+letters[1] = "Z";  // Devuelve "Z" y modifica letters a ["a", "Z", "c"]
+letters[3] = "D";  // Devuelve "D" y modifica letters a ["a", "Z", "c", "D"]
+letters[5] = "A";  // Devuelve "A" y modifica letters a ["a", "Z", "c", "D", undefined, 
+
+Ten en cuenta que con el nuevo método .with(), se puede hacer esto de una forma más cómoda y sin modificar el array original. Permite encadenar múltiples operaciones, pero ten en cuenta que sólo modifica, no se pueden añadir elementos que no existen antes en el array:
+
+const letters =  ["a", "b", "c"];
+
+letters.with(1, "Z");   // Devuelve "Z" y modifica letters a ["a", "Z", "c"]
+letters.with(1, "Z")
+       .with(3, "D");   // No se puede hacer porque la posición 3 no existe
+letters.with(5, "A");   // No se puede hacer porque la posición 5 no existe
+
+
+El método .at()
+
+Además del clásico operador [], también podemos utilizar el método .at(), añadido en Javascript ES2022. Con él, se puede hacer exactamente lo mismo que con [pos], sólo que además permite valores negativos, mediante los cuales se puede obtener elementos en orden inverso, es decir, empezando a contar desde el último elemento:
+
+const letters = ["a", "b", "c"];
+
+letters.at(0);    // "a"
+letters.at(1);    // "b"
+letters.at(3);    // undefined
+letters.at(-1);   // "c"
+letters.at(-2);   // "b"
+
+Esta característica hace que acceder al último elemento (o cercanos) sea bastante práctico, ya que hacer la misma operación con el operador [] era algo menos directo que en algunos casos se podría volver confuso o poco intuitivo:
+
+const letters = ["a", "b", "c"];
+const lastItem = letters.length - 1;
+
+letters[lastItem];    // "c"
+
+_________________________________________________________________________________
+
+CLASE 7: FUNCIONES DE ORDEN SUPERIOR
+
+Las funciones son un concepto muy importante en JavaScript. Dominarlas es una necesidad.
+
+Recapitulando, ¿Qué es una función?
+
+Es necesario pensarlas como palabras en nuestro lenguaje. Diferentes vocabularios nos ayudan a evitar repetir las mismas palabras. Por ejemplo, en lugar de decir "una persona entre 13 y 19 años", podemos utilizar el término adolescente. Esto nos proporciona la libertad de usar esta palabra para formar diferentes oraciones sin generar confusiones.
+
+Las funciones siguen un patrón similar, nos permiten envolver un programa completo en una sola expresión (que en este caso se alojaría bajo un identificador). Entonces podemos llamar a esta expresión como nuestro nuevo vocabulario. Luego podemos utilizarla en cualquier parte de nuestro código para hacer cosas diferentes.
+
+EJEMPLO
+
+// Esta es el nuevo vocabulario o expresión, que resume la operación suma
+// Dentro de esta función, se combinan parámetros y operadores, para dar lugar a un nuevo resultado
+// Esta función retorna un nuevo valor, a partir de valores anteriores
+// La función suma no existía antes en JavaScript, pero nosotros hemos creado una nueva expresión, extendiendo el vocabulario de JavaScript
+// Ahora JavaScript puede realizar esta nueva "abstracción" llamada suma.
+
+const suma = ( a, b ) => a + b
+
+// Podemos usar esta suma para muchas cosas, como por ejemplo calcular el salario neto y el aguinaldo
+
+const totalSalarioYAguinaldo = ( a, b ) => {
+  return suma(a, b)
+}
+
+console.log(totalSalarioYAguinaldo(100000, 50000)) // 150000
+
+// Podemos usar esta suma para hacer una calculadora
+
+const restar = ( a ,  b ) => a - b
+const dividir = ( a, b ) => a / b
+const multiplicar = ( a, b ) => a * b
+
+const calculadora = ( a , b, operacion ) => {
+  return operacion(a, b)
+}
+
+console.log( calculadora(10, 10, multiplicar))
+console.log( calculadora(123213213, 100000000, dividir))
+
+
+// Podemos usar la función suma, para calcular lo que sea
+
+if ( suma(10, 100) % 2 === 0 ){
+  console.log("Es número par")
+} else {
+  console.log("Es número impar")
+}
+
+ENTONCES
+
+- La capacidad de envolver una lógica en una sola expresión es muy poderoso.
+
+- Puede hacer que nuestro código sea legible y fácilmente mantenible
+
+- En caso de que tengamos que hacer cambios, podemos hacerlo en un solo lugar, el lugar donde definimos lo que debe hacer la función y no dónde la usamos.
+
+- Las funciones nos ayudan a evitar la repetición. Definimos una vez y la usamos en diferentes contextos. Esto puede salvarnos de muchos errores.
+
+PERO, ¿A QUÉ VIENE TODO ESTO? 
+
+Pensémoslo desde otra perspectiva. Supongamos que debemos desarrollar el algoritmo calculadora y este se aloja en su totalidad en una sola función. Este programa grande será muy costoso  y no solo por el tiempo, sino por la complejidad que va a involucrar y eso puede generar, como consecuencia, mucha confusión. 
+
+Las confusiones generan errores y proporcionan espacio a que los bugs se desarrollen.
+
+PREVENGAMOS CON ABSTRACCIÓN
+
+- En el contexto de la programación, la idea de separar o aislar la lógica de un algoritmo en funciones más pequeñas y especializadas a la resolución de una tarea, son llamadas abstracciones.
+
+- Las abstracciones esconden los detalles y nos dan la capacidad de hablar acerca de los problemas a un nivel superior.
+
+* Como una analogía, compara estas dos recetas de sopa de guisantes:
+
+Coloque 1 taza de guisantes secos por persona en un recipiente. Agregue agua hasta que los guisantes esten bien cubiertos. Deje los guisantes en agua durante al menos 12 horas. Saque los guisantes del agua y pongalos en una cacerola para cocinar. Agregue 4 tazas de agua por persona. Cubra la sartén y mantenga los guisantes hirviendo a fuego lento durante dos horas. Tome media cebolla por persona. Cortela en piezas con un cuchillo. Agréguela a los guisantes. Tome un tallo de apio por persona. Cortelo en pedazos con un cuchillo. Agréguelo a los guisantes. Tome una zanahoria por persona. Cortela en pedazos. Con un cuchillo! Agregarla a los guisantes. Cocine por 10 minutos más.
+
+* Y la segunda receta:
+
+Por persona: 1 taza de guisantes secos, media cebolla picada, un tallo de apio y una zanahoria.
+
+Remoje los guisantes durante 12 horas. Cocine a fuego lento durante 2 horas en 4 tazas de agua (por persona). Picar y agregar verduras. Cocine por 10 minutos más.
+
+- La segunda receta es más corta y fácil de interpretar. Pero necesitas entender algunas palabras más relacionadas a la cocina -remojar, cocinar a fuego lento, picar, etc-
+
+- Cuando programamos, no podemos confiar en que todas las palabras que necesitaremos estarán esperando por nosotros en el diccionario.
+
+- Por ello, debemos ir desarrollando cada concepto ( cada abstrácción ), para ampliar este "vocabulario" y así generar una abstracción más alta.
+
+FUNCIONES DE PRIMERA CLASE
+
+A todo esto, en ningún momento nos preguntamos cómo es que podemos manipular funciones así como así. 
+
+Se dice que se tienen "Funciones de primera clase" cuando las funciones en ese lenguaje son tratadas como cualquier otra variable.
+
+- Entonces en JavaScript una función puede ser pasada como argumento a otras funciones.
+
+- Puede ser retornada por otra función
+
+- Puede ser asignada a una variable (funciones por expresión)
+
+DOCUMENTACIÓN: https://developer.mozilla.org/es/docs/Glossary/First-class_Function
+
+FUNCIONES DE ORDEN SUPERIOR
+
+Las funciones que operan en otras funciones, ya sea tomándolas como argumentos o retornándolas, se denominan funciones de orden superior.
+
+- Esta característica es incorporada frecuentemente en los lenguajes de programación funcional
+
+Como ya hemos visto que las funciones son valores regulares, no existe nada particularmente notable sobre el hecho de que tales funciones existen. El término proviene de las matemáticas, donde la distinción entre funciones y otros valores se toma más en serio.
+
+Las funciones de orden superior nos permiten abstraer sobre acciones, no solo sobre valores. Estas vienen en varias formas. Por ejemplo:
+
+- Podemos crear funciones que crean nuevas funciones
+
+- Podemos tener funciones que cambien otras funciones
+
+- Podemos escribir funciones que proporcionen nuevos tipos de control de flujo
+
+
+FUNCIONES CALLBACK
+
+Las funciones callback (retrollamados) son funciones que se pasan a otras funciones como argumentos y son llamadas por la función en la que se pasan.
+
+- Simplemente, las funciones callback son funciones que escribimos como argumentos en otras funciones. 
+
+- No podemos invocar funciones callback. 
+
+- Se invocan cuando se llama a la función principal en la que se pasaron como argumentos.
+
+PRINCIPIOS DE LA PROGRAMACIÓN FUNCIONAL 
+
+Hay algunos principios que debemos comprender si nuestros programas deben calificar para el estándar de programación funcional. Echemos un vistazo a esos.
+
+- Evite mutaciones y efectos secundarios 
+
+El primer principio de la programación funcional es evitar cambiar las cosas. Una función no debería cambiar nada, como una variable global.
+
+Esto es muy importante porque los cambios a menudo provocan errores. Si una función cambia una variable global, por ejemplo, podría dar lugar a un comportamiento inesperado en todos los lugares donde se utiliza esa variable.
+
+El segundo principio es que una función debe ser pura, lo que significa que no tiene efectos secundarios. En la programación funcional, los cambios que se realizan se denominan mutaciones y los resultados se denominan efectos secundarios.
+
+Una función pura no hace ninguna de las dos. Una función pura siempre tendrá la misma salida para la misma entrada.
+
+Si una función depende de una variable global, esa variable debe pasarse a la función como argumento. Esto nos permite obtener la misma salida para la misma entrada.
+
+Aquí hay un ejemplo:
+
+const edadLegalEnEEUU = 21;
+const chequearEstadoLegal = (edad, edadLegal) => {
+    return edad >= edadLegal ? 'Mayor de edad.' : 'Menor de edad.';
+};
+const johnEstado = chequearEstadoLegal(18, edadLegalEnEEUU);
+johnEstado; // Menor de edad.
+edadLegalEnEEUU; // 21
+
+_________________________________________________________________________________
+
+CLASE 8
+
+MÉTODO EN PROGRAMACIÓN
+
+El término "método" en el contexto de la programación se refiere a una función o procedimiento que está asociado a un objeto o clase específica. Los objetos son instancias de una clase en la programación orientada a objetos (POO). Cada objeto puede tener atributos (variables) y métodos (funciones) que definen su comportamiento y funcionalidad.
+
+Los métodos representan las acciones o comportamientos que un objeto puede realizar. Por ejemplo, si tienes una clase "Coche", los métodos asociados a esta clase podrían ser "arrancar", "detenerse", "acelerar", "girar", etc. Cada uno de estos métodos definirá cómo se realizan esas acciones para un objeto específico de la clase "Coche".
+
+Cuando un programa llama a un método de un objeto, el objeto realiza la acción definida por ese método. Los métodos son esenciales para la programación orientada a objetos, ya que permiten interactuar con los objetos y manipular sus datos de manera estructurada y controlada.
+
+EL OBJETO MATH
+
+- Math es un objeto incorporado que tiene propiedades y métodos para constantes y funciones matemáticas. No es un objeto de función.
+
+- Cuando trabajamos con Javascript, es posible realizar gran cantidad de operaciones matemáticas de forma nativa, sin necesidad de librerías externas. Para ello, haremos uso del objeto Math, un objeto interno de Javascript que tiene incorporadas ciertas constantes y métodos (funciones) para trabajar matemáticamente.
+
+- El objeto Math de Javascript incorpora varias constantes que podemos necesitar en algunas operaciones matemáticas. Veamos su significado y valor aproximado:
+
+Math.E	Número de Euler	2.718281828459045
+
+Math.LN2	Equivalente a Math.log(2)	0.6931471805599453
+
+Math.LN10	Equivalente a Math.log(10)	2.302585092994046
+
+Math.LOG2E	Equivalente a Math.log2(Math.E)	1.4426950408889634
+
+Math.LOG10E	Equivalente a Math.log10(Math.E)	0.4342944819032518
+
+Math.PI	Número PI o Π	3.141592653589793
+
+Math.SQRT1_2	Equivalente a Math.sqrt(1/2).	0.7071067811865476
+
+Math.SQRT2	Equivalente a Math.sqrt(2).	1.4142135623730951
+
+Además de estas constantes, el objeto Math también nos proporciona gran cantidad de métodos o funciones para trabajar con números. Vamos a analizarlos.
+
+MÉTODOS MATEMÁTICOS
+
+Los siguientes métodos matemáticos están disponibles en Javascript a través del objeto Math:
+
+ Math.abs(x)	Devuelve el valor absoluto de x.	|x|
+
+ Math.sign(x) 	Devuelve el signo del número: 1 positivo, -1 negativo
+
+ Math.exp(x)	Exponenciación. Devuelve el número e elevado a x.	ex
+
+ Math.expm1(x) 	Equivalente a Math.exp(x) - 1.	ex-1
+
+ Math.max(a, b, c...)	Devuelve el número más grande de los indicados por parámetro.
+
+ Math.min(a, b, c...)	Devuelve el número más pequeño de los indicados por parámetro.	
+
+ Math.pow(base, exp)	Potenciación. Devuelve el número base elevado a exp.	baseexp
+
+ Math.sqrt(x)	Devuelve la raíz cuadrada de x.	√x
+
+ Math.cbrt(x) 	Devuelve la raíz cúbica de x.	√3x
+
+ Math.imul(a, b) 	Equivalente a a * b, pero a nivel de bits.	
+
+ Math.clz32(x) 	Devuelve el número de ceros a la izquierda de x en binario (32 bits).	
+
+ Veamos algunos ejemplos aplicados a las mencionadas funciones anteriormente:
+
+Math.abs(-5);             // 5
+Math.sign(-5);            // -1
+Math.exp(1);              // e, o sea, 2.718281828459045
+Math.expm1(1);            // 1.718281828459045
+Math.max(1, 40, 5, 15);   // 40
+Math.min(5, 10, -2, 0);   // -2
+Math.pow(2, 10);          // 1024 (Equivale a 2**10)
+Math.sqrt(2);             // 1.4142135623730951 (Equivale a Math.SQRT2)
+Math.cbrt(2);             // 1.2599210498948732
+Math.imul(0xffffffff, 7); // -7
+
+MÉTODO Math.random()
+
+- Uno de los métodos más útiles e interesantes del objeto Math es Math.random().
+
+- Devuelve un número al azar entre 0 y 1 con 16 decimales.
+
+Math.random() es un método en JavaScript que devuelve un número de punto flotante pseudoaleatorio en el rango de 0 (incluido) a 1 (excluido). Esto significa que el número generado será mayor o igual a 0 pero menor que 1. Es importante tener en cuenta que el número generado no es verdaderamente aleatorio, sino que es el resultado de un algoritmo determinista, por lo que se le llama "pseudoaleatorio".
+
+Fórmula:
+
+Math.random() * (max - min) + min;
+
+
+es una forma común de generar un número aleatorio dentro de un rango específico, donde min y max son los límites inferiores y superiores deseados del rango, respectivamente. Desglosemos los pasos uno por uno:
+
+Math.random(): Esta parte genera un número de punto flotante aleatorio entre 0 (incluido) y 1 (excluido). Como mencioné anteriormente, el número generado estará en el rango [0, 1).
+
+(max - min): Esto calcula la diferencia entre el límite superior (max) y el límite inferior (min). Este valor representa el rango de números que deseas generar.
+
+Math.random() * (max - min): Esto multiplica el número aleatorio por el rango. El resultado será un número aleatorio entre 0 (incluido) y el rango (max - min), pero aún no incluyendo el límite superior del rango (max).
+
+Math.random() * (max - min) + min;: Por último, se suma el valor de min a la expresión para desplazar el rango hacia arriba.
+
+---------------------------------------------------------------
+
+FECHA Y HORA
+
+Aprendamos un nuevo objeto incorporado de JS: Date. Este objeto almacena la fecha, la hora, y brinda métodos para administrarlas.
+
+Por ejemplo, podemos usarlo para almacenar horas de creación o modificación, medir tiempo, o simplemente mostrar en pantalla la fecha actual.
+
+Creación
+Para crear un nuevo objeto Date se lo instancia con new Date() junto con uno de los siguientes argumentos:
+
+new Date()
+Sin argumentos – crea un objeto Date para la fecha y la hora actuales:
+
+let now = new Date();
+alert( now ); // muestra en pantalla la fecha y la hora actuales
+
+Acceso a los componentes de la fecha
+
+Existen métodos que sirven para obtener el año, el mes, y los demás componentes a partir de un objeto de tipo Date:
+
+getFullYear()
+Devuelve el año (4 dígitos)
+
+getMonth()
+Devuelve el mes, de 0 a 11.
+
+getDate()
+Devuelve el día del mes desde 1 a 31. Nótese que el nombre del método no es muy 
+intuitivo.
+
+getHours(), getMinutes(), getSeconds(), getMilliseconds()
+Devuelve los componentes del horario correspondientes.
+
+-----------------------------------------
+
+No getYear(), sino getFullYear()
+
+Algunos motores de JavaScript poseen implementado un método no estándar llamado getYear(). Este método actualmente está obsoleto. A veces devuelve un año de 2 dígitos. Por favor, nunca lo uses. Usa getFullYear() para obtener el año.
+
+------------------------------------------------------------------------------------
+
+CLASE 10 DOM
+
+Cuando comenzamos haciendo desarrollo web, nuestros primeros pasos están relacionados a HTML (Hypertext markup language) y CSS (Cascade Stylesheet). Desde estos lenguajes estamos habilitados a estructurar el contenido de un sitio y modificar sus estilos por defecto (user agent stylesheet). Sin embargo, esta perspectiva es muy limitante, debido a que estos sitios carecen de dinamismo, es decir, son estáticos.
+
+Al incorporar JavaScript en nuestros proyectos, podemos generar un dinamismo que nos va a permitir crear páginas que ofrecen una experiencia más completa, en donde podemos tener contacto con el usuario, ofrecer accionables que puedan darse dentro del contexto del sitio y cubrir necesidades de negocio.
+
+¿Qué es el DOM?
+
+La sigla DOM (Document Object Model), es la estructura del documento HTML. Una página HTML está formada por múltiples etiquetas HTML, anidadas una dentro de otra, formando un árbol de etiquetas relacionadas entre sí, que se denominan árbol DOM.
+
+En JavaScript, cuando nos referimos al DOM, hacemos referencia a esta estructura de árbol, mediante la cuál podemos acceder a ella y modificar los elementos del HTML desde JavaScript, añadiendo nuevas etiquetas, modificando o eliminando otras, cambiando sus atributos HTML, añadiendo clases, cambiando el contenido del texto, etc.
+
+Al estar controlado por un lenguaje de programación, todas estas tareas se pueden automatizar, incluso indicando que se realicen cuando el usuario haga acciones determinadas, como por ejemplo: pulsar un botón, mover el ratón, hacer click en una parte del documento, etc.
+
+Cuando abrimos una página web en un navegador, el navegador toma el texto HTML y lo parsea. El navegador construye la estructura del modelo de objetos del documento y usa este modelo para “dibujar” la página en la pantalla.
+La representación del documento es uno de los elementos que tiene disponible JavaScript. Esta estructura de dato puede ser modificada. Es como una estructura de datos viva, cuando es modificada, la página es actualizada para reflejar los cambios.
+ESTRUCTURA DEL DOCUMENTO
+
+Se puede imaginar a un documento HTML como un conjunto de cajas anidadas. Etiquetas como <body> y </body>, contiene otras etiquetas, que en el flujo del documento, van a estar conteniendo a otras etiquetas:
+
+<!doctype html>
+<html>
+  <head>
+    <title>My home page</title>
+  </head>
+  <body>
+    <h1>My home page</h1>
+    <p>Hello, I am Marijn and this is my home page.</p>
+    <p>I also wrote a book! Read it
+      <a href="http://eloquentjavascript.net">here</a>.</p>
+  </body>
+</html>
+
+La estructura de datos del navegador representará al documento siguiendo este formato. Para cada una de las cajas, existe un objeto, con el cual podemos interactuar, tanto el elemento en sí como su contenido. Esta representación es llamada Document Object Model o DOM.
+
+El elemento global “document” nos permite el acceso a cada uno de esos objetos. La propiedad “documentElement” hace referencia al <html> representado. 
+Si pensáramos en esta estructura como si fuese un árbol, podríamos establecer un paralelismo con la estructura del DOM. Cada nodo puede hacer referencia a otros nodos, hijos, que a su vez pueden tener sus propios hijos. Esta forma es típica de estructuras anidadas donde los elementos pueden contener subelementos que son similares a ellos mismos.
+
+Llamamos árbol a una estructura de datos cuando tiene una estructura ramificada, no tiene ciclos (un nodo puede no contenerse a sí mismo, directa o indirectamente) y tiene una raíz única y bien definida. En el caso del DOM, document.documentElement sirve como raíz.
+
+Los árboles surgen mucho en informática. Además de representar estructuras recursivas como documentos o programas HTML, a menudo se usan para mantener conjuntos de datos ordenados porque los elementos generalmente se pueden encontrar o insertar de manera más eficiente en un árbol que en una matriz plana.
+
+Un árbol típico tiene diferentes tipos de nodos. El árbol de sintaxis del lenguaje Egg tenía identificadores, valores y nodos de aplicación. Los nodos de aplicación pueden tener hijos, mientras que los identificadores y valores son hojas o nodos sin hijos.
+
+Lo mismo ocurre con el DOM. Los nodos de elementos, que representan etiquetas HTML, determinan la estructura del documento. Estos pueden tener nodos secundarios. Un ejemplo de tal nodo es document.body. Algunos de estos elementos secundarios pueden ser nodos hoja, como fragmentos de texto o nodos de comentarios.
+
+Cada objeto de nodo DOM tiene una propiedad nodeType, que contiene un código (número) que identifica el tipo de nodo. Los elementos tienen el código 1, que también se define como la propiedad constante Node.ELEMENT_NODE. Los nodos de texto, que representan una sección de texto en el documento, obtienen el código 3 (Node.TEXT_NODE). Los comentarios tienen el código 8 (Node.COMMENT_NODE).
+
+----------------------------------------------------------------------------
+
+CLASE 11: EVENTOS
+
+Hay situaciones en las que necesitamos realizar una determinada acción cuando ocurra un determinado caso. En estas situaciones, no sabemos exactamente cuando tenemos que activar nuestra funcionalidad, ya que no podemos predecir cuando el usuario de nuestra página realizará la acción necesaria (y podrá ser diferente en cada situación).
+
+En estas situaciones es cuando entran en juego los eventos.
+
+¿QUÉ ES UN EVENTO?
+
+En Javascript existe un concepto llamado evento, que no es más que una notificación de que alguna característica interesante acaba de ocurrir, generalmente relacionada con el usuario que navega por la página.
+
+Dichas características pueden ser muy variadas:
+
+- Click de ratón del usuario sobre un elemento de la página
+- Pulsación de una tecla específica del teclado
+- Reproducción de un archivo de audio/video
+- Scroll de ratón sobre un elemento de la página
+- El usuario ha activado la opción «Imprimir página»
+
+Como desarrolladores, nuestro objetivo es preparar nuestro código para que cuando ocurra un determinado evento, se lleve a cabo una funcionalidad asociada. De esta forma, podemos preparar nuestra página o aplicación para que cuando ocurran ciertos eventos (que no podemos predecir de otra forma), reaccionen a ellos.
+
+MANEJADORES DE EVENTOS
+
+Los navegadores nos permiten registrar
+funciones como manejadores (handler) para eventos específicos.
+
+EJEMPLO
+
+<p>Da clic en este documento para activar el manejador.</p>
+
+<script>
+window.addEventListener("click", () => {
+console.log("¿Tocaste?");
+});
+</script>
+
+La vinculación window se refiere a un objeto integrado proporcionado por
+el navegador. Este representa la ventana del navegador que contiene el documento. Llamando a su método addEventListener se registra el segundo argumento que se llamará siempre que ocurra el evento descrito por su primer argumento.
+
+EVENTOS Y NODOS DOM
+
+Cada manejador de eventos del navegador es registrado dentro de un contexto.
+En el ejemplo anterior llamamos a addEventListener en el objeto window para
+registrar un manejador para toda la ventana. Este método puede también
+ser encontrado en elementos DOM y en algunos otros tipos de objetos. Los
+controladores de eventos son llamados únicamente cuando el evento ocurra en
+el contexto del objeto en que están registrados.
+
+<button>Presióname</button>
+<p>No hay manejadores aquí.</p>
+<script>
+let boton = document.querySelector("button");
+boton.addEventListener("click", () => {
+console.log("Botón presionado.");
+});
+</script>
+
+Este ejemplo adjunta un manejador al nodo del botón. Los clics sobre el
+botón hacen que se ejecute ese manejador, pero los clics sobre el resto del
+documento no.
+Dar a un nodo un atributo onclick tiene un efecto similar. Esto funciona
+para la mayoría de tipos de eventos—se puede adjuntar un manejador a través
+del atributo cuyo nombre es el nombre del evento con on en frente de este.
+Pero un nodo puede tener únicamente un atributo onclick, por lo que se
+puede registrar únicamente un manejador por nodo de esa manera. El método
+addEventListener permite agregar cualquier número de manejadores siendo
+seguro agregar manejadores incluso si ya hay otro manejador en el elemento.
+
+
+OBJETOS DE EVENTO
+
+Aunque lo hemos ignorado hasta ahora, las funciones del manejador de eventos
+reciben un argumento: el objeto de evento. Este objeto contiene información
+adicional acerca del evento. Por ejemplo, si queremos saber cuál botón del
+mouse fue presionado, se puede ver la propiedad button del objeto de evento.
+
+<button>Haz clic en mí de la forma que quieras</button>
+<script>
+let boton = document.querySelector("button");
+boton.addEventListener("mousedown", evento => {
+if (evento.button == 0) {
+console.log("Botón izquierdo");
+} else if (evento.button == 1) {
+console.log("Botón central");
+} else if (evento.button == 2) {
+console.log("Botón derecho");
+}
+});
+</script>
+
+La información almacenada en un objeto de evento es diferente por cada
+tipo de evento. Se discutirán los distintos tipos de eventos más adelante en
+el capítulo. La propiedad type del objeto siempre contiene una cadena que
+identifica al evento (como "click" o "mousedown")
+
+PROPAGACIÓN
+
+Para la mayoría de tipos de eventos, los manejadores registrados en nodos con
+hijos también recibirán los eventos que sucedan en los hijos. Si se hace clic a
+un botón dentro de un párrafo, los manejadores de eventos del párrafo también
+verán el evento clic.
+Pero si tanto el párrafo como el botón tienen un manejador, el manejador
+más específico—el del botón—es el primero en lanzarse. Se dice que el evento
+se propaga hacia afuera, desde el nodo donde este sucedió hasta el nodo padre
+del nodo y hasta la raíz del documento. Finalmente, después de que todos
+los manejadores registrados en un nodo específico hayan tenido su turno, los
+manejadores registrados en general ventana tienen la oportunidad de responder
+al evento.
+En cualquier momento, un manejador de eventos puede llamar al método
+stopPropagation en el objeto de evento para evitar que los manejadores que
+se encuentran más arriba reciban el evento. Esto puede ser útil cuando, por
+ejemplo, si tienes un botón dentro de otro elemento en el que se puede hacer
+clic y que no se quiere que los clics sobre el botón activen el comportamiento
+de clic del elemento exterior.
+El siguiente ejemplo registra manejadores "mousedown" tanto en un botón
+como el párrafo que lo rodea. Cuando se hace clic con el botón derecho del
+mouse, el manejador del botón llama a stopPropagation, lo que evitará que
+se ejecute el manejador del párrafo. Cuando se hace clic en el botón con otro
+botón del mouse, ambos manejadores se ejecutarán.
+
+<p>Un párrafo con un <button>botón</button>.</p>
+<script>
+let parrafo = document.querySelector("p");
+let boton = document.querySelector("button");
+parrafo.addEventListener("mousedown", () => {
+console.log("Manejador del párrafo.");
+});
+boton.addEventListener("mousedown", evento => {
+console.log("Manejador del botón.");
+if (evento.button == 2) evento.stopPropagation();
+});
+</script>
+
+La mayoría de objetos de eventos tienen una propiedad target que se refiere
+al nodo donde se originaron. Se puede usar esta propiedad para asegurar de
+que no se está manejando accidentalmente algo que se propagó desde un nodo
+que no se desea manejar.
+
+También es posible utilizar la propiedad target para lanzar una red amplia
+para un evento específico. Por ejemplo, si tienes un nodo que contiene una gran
+cantidad de botones, puede ser más conveniente el registrar un manejador en un
+solo clic en el nodo externo y hacer que use la propiedad target para averiguar
+si se hizo clic en un botón, en lugar de registrar manejadores individuales en
+todos los botones.
+
+<button>A</button>
+<button>B</button>
+<button>C</button>
+<script>
+document.body.addEventListener("click", evento => {
+if (evento.target.nodeName == "BUTTON") {
+console.log("Presionado", evento.target.textContent);
+}
+});
+</script>
+
+ACCIONES POR DEFECTO
+
+La mayoría de eventos tienen una acción por defecto asociada a ellos. Si haces
+clic en un enlace, se te dirigirá al destino del enlace. Si presionas la flecha hacia
+abajo, el navegador desplazará la página hacia abajo. Si das clic derecho, se
+obtendrá un menú contextual. Y así.
+
+Para la mayoría de los tipos de eventos, los manejadores de eventos de
+JavaScript se llamarán antes de que el comportamiento por defecto se produzca. Si el manejador no quiere que suceda este comportamiento por defecto,
+normalmente porque ya se ha encargado de manejar el evento, se puede llamar
+al método preventDefault en el objeto de evento.
+
+Esto puede ser utilizado para implementar un atajo de teclado propio o
+menú contextual. Esto también puede ser utilizado para interferir de forma
+desagradable el comportamiento que los usuarios esperan. Por ejemplo, aquí
+hay un enlace que no se puede seguir:
+
+<a href="https://developer.mozilla.org/">MDN</a>
+<script>
+let enlace = document.querySelector("a");
+enlace.addEventListener("click", evento => {
+console.log("Nope.");
+evento.preventDefault();
+});
+</script>
+
+Trata de no hacer tales cosas a menos que tengas una buena razón para
+hacerlo. Será desagradable para las personas que usan tu página cuando el
+comportamiento esperado no funcione.
+Dependiendo del navegador, algunos eventos no pueden ser interceptados en
+lo absoluto. En Chrome, por ejemplo, el atajo de teclado para cerrar la pestaña
+actual (control-W o command-W) no se puede manejar con JavaScript.
+
+_______________________________________________________________________________
+
+Clase 11: STORAGE & JSON
+
+A finales de la década de 1990, muchos sitios web se caracterizaban por ser delanteras HTML hacia bases de datos. Los sitios web modernos presumen de manejar conjuntos de datos del tamaño de petabytes, lo cual supone un crecimiento en órdenes de magnitud superior comparado con la década anterior. No hay indicios de este almacenamiento de datos centrado en la red disminuya, teniendo en consideración la "computación en la nube" y el "software como servicio".
+
+Esto no significa los desarrolladores web quieran mantenerlo todo en una base de datos dirigida por un servidor web. Existen muchos beneficios en lo referente a la descarga del almacenamiento de datos hacia el navegador; desde el ancho de banda hasta el rendimiento y los costes de almacenamiento. La cookie HTTP ha sido siempre el caballo de batalla del almacenamiento en el navegador. Sin embargo las cookies tienen límites de cantidad (20 cookies por dominio), tamaño (4 KB por cookie) y seguridad (un atributo de ruta inútil 2 ); los cuales han sido acordados por los fabricantes de navegadores en principio y no por estándar.
+
+El propósito del Almacenamiento Web (Web Storage) es ofrecer un mecanismo para los desarrolladores web puedan almacenar grandes cantidades de datos en el navegador, utilizando una API estándar para todos los navegadores. Las principales características de Web Storage atestiguan su ascendencia en la cookie HTTP: los datos se almacenan como pares clave/valor, y los objetos de Web Storage pueden marcarse como sessionStorage o localStorage (similar a las cookies de sesión y persistentes).
+
+Las claves y los valores de un objeto de almacenamiento son siempre cadenas de JavaScript. Un objeto de almacenamiento de sesión está vinculado hacia un contexto de navegación. Por ejemplo, dos pestañas diferentes del navegador tendrán objetos sessionStorage únicos. Los cambios en una no afectarán a la otra. El contenido de un objeto localStorage será accesible a todas las pestañas del navegador; la modificación de un par clave/valor de una pestaña afectará al almacenamiento de cada pestaña. En todos los casos el acceso está restringido por la Política del Mismo Origen.
+
+Un aspecto importante de la seguridad del almacenamiento web es los datos son visibles y modificables por el usuario.
+
+El siguiente código demuestra un patrón común para enumerar las claves de un objeto de almacenamiento a través de un bucle.
+
+let clave;
+for (let i = 0; i < localStorage.length; i++){
+key = localStorage.key(i);
+console.log(localStorage.getItem(key));
+}
+
+¿Qué son las cookies? ¿Cómo se usan las cookies desde JavaScript?
+
+Las cookies son pequeños fragmentos de datos que un servidor web puede enviar al navegador del usuario y que se almacenan en el dispositivo del usuario. Estos datos se envían de vuelta al servidor en cada solicitud subsiguiente, lo que permite que el servidor identifique y realice un seguimiento del usuario. Las cookies son ampliamente utilizadas en la web para diversas funcionalidades, como mantener sesiones de usuario, almacenar preferencias, realizar análisis y rastrear el comportamiento del usuario.
+
+Desde el punto de vista de JavaScript, se puede acceder y manipular cookies utilizando el objeto `document.cookie`. Este objeto proporciona una manera de establecer, obtener y eliminar cookies. Las cookies se almacenan como una cadena de texto con formato clave-valor, donde cada par clave-valor representa una cookie.
+
+Aquí hay un ejemplo simple de cómo usar cookies desde JavaScript:
+
+```javascript
+// Establecer una cookie
+document.cookie = "usuario=Juan; expires=Sat, 08 Aug 2023 23:59:59 UTC; path=/";
+
+// Obtener el valor de una cookie específica
+const usuarioCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('usuario='));
+const usuario = usuarioCookie ? usuarioCookie.split('=')[1] : null;
+console.log(usuario); // Imprimirá "Juan"
+
+// Eliminar una cookie (estableciendo una fecha de vencimiento en el pasado)
+document.cookie = "usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+```
+
+En este ejemplo:
+
+- Primero, se establece una cookie llamada "usuario" con el valor "Juan" y una fecha de vencimiento futura.
+- Luego, se obtiene el valor de la cookie "usuario" separando la cadena `document.cookie` y buscando el valor correspondiente.
+- Finalmente, se elimina la cookie estableciendo una fecha de vencimiento en el pasado.
+
+Es importante tener en cuenta algunas consideraciones al trabajar con cookies:
+
+1. **Seguridad y Privacidad:** Las cookies pueden ser utilizadas para rastrear a los usuarios y almacenar información sensible. Por lo tanto, es crucial manejar las cookies con precaución y cumplir con las regulaciones de privacidad, como el Reglamento General de Protección de Datos (GDPR) en la Unión Europea.
+
+2. **Tamaño Limitado:** Las cookies tienen un tamaño limitado (generalmente alrededor de 4KB). No es recomendable almacenar grandes cantidades de datos en cookies.
+
+3. **Acceso Limitado:** Las cookies están sujetas a políticas de mismo origen (same-origin policy) y solo se pueden acceder desde el mismo dominio que las estableció.
+
+4. **Diferentes Navegadores:** La manipulación de cookies puede variar ligeramente entre diferentes navegadores, por lo que es importante realizar pruebas cruzadas para garantizar la compatibilidad.
+
+En muchos casos, especialmente cuando se necesita almacenar una cantidad más grande de datos o información más compleja, es posible que las cookies no sean la mejor opción y se pueda considerar el uso de otras formas de almacenamiento, como el almacenamiento web (`LocalStorage` o `SessionStorage`) o incluso la comunicación con un servidor.
+
+¿En qué situación se prefieren las cookies y en cuáles el storage?
+
+Tanto las cookies como el almacenamiento web (`LocalStorage` y `SessionStorage`) tienen sus propias ventajas y casos de uso específicos en el desarrollo web. La elección entre usar cookies o almacenamiento web dependerá de las necesidades particulares de tu aplicación. Aquí hay algunas consideraciones sobre cuándo es preferible utilizar cookies y cuándo es más adecuado utilizar el almacenamiento web:
+
+**Cookies:**
+
+1. **Gestión de Sesiones:** Las cookies son ideales para administrar sesiones de usuario. Puedes usar cookies para mantener al usuario autenticado a lo largo de sus interacciones en el sitio web.
+
+2. **Comunicación con el Servidor:** Las cookies se envían automáticamente con cada solicitud al servidor, lo que las hace útiles para enviar datos al servidor en cada interacción.
+
+3. **Seguimiento del Usuario:** Si necesitas rastrear el comportamiento del usuario en diferentes visitas o sesiones, las cookies son una opción adecuada.
+
+4. **Compatibilidad con Navegadores Antiguos:** Las cookies son ampliamente compatibles con navegadores antiguos y no dependen tanto de la versión del navegador.
+
+**Almacenamiento Web (`LocalStorage` y `SessionStorage`):**
+
+1. **Almacenamiento Local:** El almacenamiento web es ideal cuando necesitas almacenar datos en el navegador del usuario para su uso posterior, pero no es necesario enviarlos al servidor en cada interacción.
+
+2. **Capacidad Mayor de Almacenamiento:** El almacenamiento web puede manejar más datos que las cookies (generalmente alrededor de 5-10 MB en comparación con los 4KB típicos de las cookies).
+
+3. **Persistencia de Datos:** Si deseas almacenar datos de manera persistente para que estén disponibles incluso después de cerrar el navegador, el almacenamiento web es la elección adecuada.
+
+4. **Mejor Control de Datos:** El almacenamiento web ofrece un mayor control sobre los datos, ya que no se envían automáticamente con cada solicitud al servidor y no están sujetos a las restricciones de mismo origen de las cookies.
+
+En resumen, las cookies son especialmente útiles para administrar sesiones de usuario, realizar seguimiento y comunicación con el servidor, mientras que el almacenamiento web es más adecuado para el almacenamiento local y persistente de datos en el navegador del usuario. En muchos casos, una combinación de ambas soluciones puede ser beneficiosa para lograr los objetivos deseados en una aplicación web.
+
+EL OBJETO STORAGE, LOCALSTORAGE Y SESSIONSTORAGE
+
+El objeto `Storage` y la API de almacenamiento web son conceptos relacionados en el mundo de la programación web, que permiten a los desarrolladores almacenar datos de manera persistente en el navegador del usuario. Esto es útil para guardar información localmente y acceder a ella en futuras sesiones sin necesidad de enviarla constantemente al servidor.
+
+**Objeto Storage:**
+El objeto `Storage` es una interfaz en JavaScript que proporciona una forma sencilla de almacenar pares clave-valor en el navegador web. Hay dos tipos de objetos `Storage`: `localStorage` y `sessionStorage`.
+
+1. **localStorage:** Los datos almacenados en `localStorage` persisten incluso después de cerrar y volver a abrir el navegador. Estos datos son accesibles para la misma página web en futuras sesiones.
+
+2. **sessionStorage:** Los datos almacenados en `sessionStorage` solo están disponibles durante la sesión actual del navegador. Cuando se cierra la pestaña o ventana del navegador, los datos almacenados en `sessionStorage` se eliminan.
+
+**API de Almacenamiento Web:**
+La API de almacenamiento web es una característica de JavaScript que proporciona métodos para interactuar con el objeto `Storage`. Permite a los desarrolladores guardar, recuperar y eliminar datos de manera sencilla en el navegador del usuario. La API incluye los siguientes métodos básicos:
+
+1. `setItem(key, value)`: Almacena un valor asociado a una clave en el objeto `Storage`.
+
+2. `getItem(key)`: Recupera el valor asociado a una clave específica.
+
+3. `removeItem(key)`: Elimina el valor asociado a una clave.
+
+4. `clear()`: Elimina todos los valores almacenados en el objeto `Storage`.
+
+**Ejemplo de uso de la API de Almacenamiento Web:**
+Supongamos que deseamos crear un contador de visitas en una página web utilizando `localStorage`. Aquí hay un ejemplo de cómo podríamos hacerlo:
+
+```javascript
+// Incrementar el contador de visitas
+function incrementCounter() {
+  // Obtener el valor actual del contador (si existe)
+  let currentCount = localStorage.getItem('visitCount') || 0;
+
+  // Incrementar el contador
+  currentCount++;
+
+  // Almacenar el nuevo valor del contador en localStorage
+  localStorage.setItem('visitCount', currentCount);
+
+  // Mostrar el contador en la página
+  document.getElementById('counter').textContent = `Visitas: ${currentCount}`;
+}
+
+// Llamar a la función para incrementar el contador al cargar la página
+window.onload = function () {
+  incrementCounter();
+};
+```
+
+En este ejemplo, cada vez que el usuario carga la página, la función `incrementCounter` verifica si ya existe un contador almacenado en `localStorage`. Si existe, incrementa su valor y lo actualiza. Si no existe, se crea un nuevo contador con valor 1. Luego, el valor actualizado se muestra en la página.
+
+Recuerda que `localStorage` tiene limitaciones en cuanto a la cantidad de datos que se pueden almacenar (generalmente alrededor de 5-10 MB por dominio) y que no es adecuado para almacenar información sensible o confidencial.
+
+JSON
+
+JSON (JavaScript Object Notation) es un formato de intercambio de datos ligero y fácil de leer que se utiliza para representar estructuras de datos y objetos en texto plano. Es ampliamente utilizado en la programación web y en la comunicación entre sistemas para transmitir y almacenar información de manera eficiente y legible tanto para humanos como para máquinas.
+
+Características clave de JSON:
+
+1. **Sintaxis Sencilla:** JSON utiliza una sintaxis simple y legible que consiste en pares clave-valor, arrays (listas ordenadas) y objetos (colecciones no ordenadas de pares clave-valor).
+
+2. **Formato de Texto Plano:** Los datos JSON se representan en formato de texto, lo que facilita la lectura y la depuración.
+
+3. **Independiente del Lenguaje:** JSON es independiente del lenguaje de programación, lo que significa que puede ser utilizado y comprendido por múltiples lenguajes.
+
+4. **Facilita la Comunicación:** JSON se utiliza comúnmente en la comunicación entre el cliente y el servidor, así como en la persistencia de datos.
+
+**Usos de JSON:**
+
+1. **Intercambio de Datos:** JSON se utiliza para transmitir datos entre diferentes aplicaciones y sistemas, ya sea a través de APIs, servicios web o cualquier otra forma de comunicación.
+
+2. **Persistencia de Datos:** JSON se utiliza para almacenar datos en archivos o bases de datos en formato de texto, lo que facilita la lectura y escritura.
+
+3. **Configuración y Metadatos:** JSON se utiliza para representar configuraciones, opciones y metadatos en aplicaciones.
+
+4. **Serialización y Deserialización:** JSON se utiliza para serializar (convertir a una cadena JSON) y deserializar (convertir desde una cadena JSON) objetos, lo que facilita su almacenamiento y transmisión.
+
+**Rol en la Relación Cliente-Servidor:**
+
+En la relación cliente-servidor, JSON juega un papel crucial como un formato comúnmente aceptado para la comunicación de datos entre el cliente (generalmente un navegador web o una aplicación) y el servidor (que aloja la aplicación o el servicio). Aquí están algunas formas en las que JSON se utiliza en esta relación:
+
+1. **Respuestas de Servidor:** Cuando el cliente realiza una solicitud al servidor, la respuesta del servidor a menudo se devuelve en formato JSON. Esta respuesta puede contener datos, mensajes de error, resultados de consultas, etc.
+
+2. **Solicitudes al Servidor:** Al enviar datos al servidor, como formularios o solicitudes de API, el cliente puede codificar los datos en formato JSON antes de enviarlos.
+
+3. **Configuración y Personalización:** JSON se utiliza para enviar configuraciones o preferencias personalizadas desde el cliente al servidor, lo que permite adaptar la experiencia del usuario.
+
+4. **APIs y Servicios Web:** Muchas APIs y servicios web utilizan JSON para definir la estructura de las solicitudes y respuestas, lo que permite una comunicación eficiente y bien estructurada entre el cliente y el servidor.
+
+En JavaScript, trabajar con JSON implica la manipulación y transformación de datos en formato JSON. Para lograrlo, existen varios métodos y funciones proporcionados por el lenguaje y por el propio formato JSON. Aquí te presento algunos de los métodos y funciones más comunes para trabajar con JSON en JavaScript:
+
+1. **`JSON.parse()`**: Este método se utiliza para analizar una cadena JSON y convertirla en un objeto JavaScript. Recibe como argumento una cadena JSON y devuelve un objeto JavaScript correspondiente. Por ejemplo:
+
+```javascript
+const jsonString = '{"nombre": "Juan", "edad": 30}';
+const objeto = JSON.parse(jsonString);
+console.log(objeto.nombre); // Salida: "Juan"
+```
+
+2. **`JSON.stringify()`**: Este método convierte un objeto JavaScript en una cadena JSON. Puedes usarlo para serializar un objeto antes de enviarlo a un servidor o almacenarlo. Por ejemplo:
+
+```javascript
+const objeto = { nombre: "María", edad: 25 };
+const jsonString = JSON.stringify(objeto);
+console.log(jsonString); // Salida: '{"nombre":"María","edad":25}'
+```
+
+3. **`JSON.stringify()` con espaciado**: Puedes proporcionar un segundo argumento a `JSON.stringify()` para agregar un espaciado (indentación) a la cadena JSON generada, lo que facilita la lectura. Por ejemplo:
+
+```javascript
+const objeto = { nombre: "Pedro", edad: 28 };
+const jsonString = JSON.stringify(objeto, null, 2);
+console.log(jsonString);
+// Salida:
+// {
+//   "nombre": "Pedro",
+//   "edad": 28
+// }
+```
+
+4. **Manejo de Errores**: Tanto `JSON.parse()` como `JSON.stringify()` pueden generar errores si los datos no son válidos. Debes envolver su uso en bloques try-catch para manejar estos errores adecuadamente.
+
+```javascript
+try {
+  const jsonString = '{"nombre": "Ana", "edad":}';
+  const objeto = JSON.parse(jsonString);
+} catch (error) {
+  console.error('Error al analizar JSON:', error);
+}
+```
+_____________________________________________________________________________________
+
+Clase 12: Sugar Syntax
+
+La "sugar syntax" (sintaxis azucarada) de Peter Landin se refiere a la idea de utilizar una sintaxis más legible o expresiva en un lenguaje de programación, en lugar de depender únicamente de la sintaxis más formal o básica del lenguaje. Esta noción se asoció principalmente con Peter Landin, un informático británico que realizó contribuciones significativas en el campo de la programación y la lingüística.
+
+Landin propuso que los lenguajes de programación deberían permitir a los programadores expresar sus ideas de manera más clara y concisa, en lugar de obligarlos a utilizar una sintaxis más compleja y formal. En lugar de basarse únicamente en las construcciones sintácticas primitivas del lenguaje, como las instrucciones y las estructuras de control estándar, se podrían introducir formas de escribir código que se sintieran más naturales y cercanas al lenguaje humano.
+
+Un ejemplo clásico de "sugar syntax" es el uso de bucles "for each" en muchos lenguajes modernos en lugar de bucles "for" tradicionales, lo que hace que el código sea más claro y legible cuando se trabaja con colecciones de datos.
+
+Esencialmente, la idea detrás de la "sugar syntax" es mejorar la productividad del programador y hacer que el código sea más fácil de entender y mantener, al proporcionar construcciones de lenguaje más expresivas y menos verbosas. Sin embargo, es importante encontrar un equilibrio para no sobrecargar el lenguaje con demasiadas construcciones sintácticas adicionales, ya que esto podría dificultar la comprensión de los programas por parte de otros desarrolladores.
+
+______________________________________________________________________________________
+
+CLASE 15: ASINCRONISMO Y PROMESAS
+
+La programación síncrona se refiere a un estilo de programación en el que las instrucciones se ejecutan una tras otra en secuencia, de manera que cada operación espera a que la anterior se complete antes de comenzar. En otras palabras, en la programación síncrona, el flujo de ejecución está BLOQUEADO mientras se espera a que una tarea se complete antes de avanzar a la siguiente.
+
+En el contexto de JavaScript, la programación síncrona significa que el código se ejecuta línea por línea, y cada línea de código se espera a que la operación anterior se complete antes de ejecutarse. 
+
+Sin embargo, este enfoque puede ser problemático en situaciones donde se requiere la realización de tareas que llevan tiempo (como solicitudes a servidores externos o procesamiento intensivo) ya que puede causar bloqueos y ralentizar la aplicación.
+
+EJEMPLO SÍNCRONO
+
+console.log("Inicio");
+
+function procesoLento() {
+  for (let i = 0; i < 1000000000; i++) {}
+  console.log("Proceso Lento Terminado");
+}
+
+function procesoRapido() {
+  console.log("Proceso Rápido Terminado");
+}
+
+procesoLento();
+procesoRapido();
+
+console.log("Fin");
+
+
+En este ejemplo, el código se ejecutará de manera síncrona. La función procesoLento toma tiempo en ejecutarse debido al bucle for, por lo que el proceso rápido no se iniciará hasta que el proceso lento termine. Esto puede causar un retraso en la ejecución general del programa.
+
+console.log("Inicio");
+
+function procesoAsincrono() {
+  setTimeout(() => {
+    console.log("Proceso Asíncrono Terminado");
+  }, 2000); // Simulando una tarea que toma 2 segundos
+}
+
+function procesoSincrono() {
+  console.log("Proceso Síncrono Terminado");
+}
+
+procesoAsincrono();
+procesoSincrono();
+
+console.log("Fin");
+
+
+En este ejemplo, la función procesoAsincrono utiliza setTimeout para simular una tarea que toma 2 segundos. Mientras tanto, la función procesoSincrono es síncrona. Debido a la naturaleza asincrónica de setTimeout, la función procesoSincrono no espera a que procesoAsincrono termine antes de ejecutarse. Por lo tanto, "Proceso Síncrono Terminado" se imprimirá antes de "Proceso Asíncrono Terminado", a pesar de que procesoAsincrono se inició primero.
+
+¿Qué es la programación asíncrona?
+
+La programación asíncrona se refiere a un estilo de programación en el que las operaciones y tareas se ejecutan de manera independiente y no bloqueante del flujo de ejecución. En contraste con la programación síncrona, donde cada operación espera a que la anterior termine antes de comenzar, la programación asíncrona permite que múltiples tareas se ejecuten en paralelo, mejorando la eficiencia y la capacidad de respuesta de las aplicaciones.
+
+En la programación asíncrona, en lugar de detener el flujo de ejecución para esperar a que una tarea termine, se inician tareas en segundo plano y se continúa con la ejecución del código principal. Cuando una tarea asíncrona termina, se activa una notificación (como un callback, una promesa resulesta o una función async/await) para manejar los resultados o realizar acciones adicionales.
+
+El asincronismo es especialmente útil cuando se trabaja con operaciones que pueden llevar tiempo, como solicitudes a servidores, lectura/escritura de archivos, animaciones en interfaces de usuario o procesamiento intensivo. Al permitir que estas tareas se realicen sin bloquear el flujo de ejecución principal, se logra una experiencia de usuario más fluida y una mayor eficiencia en la utilización de recursos.
+
+La programación asíncrona es una técnica que permite ejecutar tareas en segundo plano de manera no bloqueante, mejorando la capacidad de respuesta y eficiencia de las aplicaciones al permitir que múltiples operaciones se realicen en paralelo. Los mecanismos como callbacks, promesas y async/await en JavaScript son herramientas esenciales para implementar la programación asíncrona de manera efectiva.
+
+¿Cuáles son las herramientas asincrónicas de JavaScript?
+
+El asincronismo es esencial en situaciones donde se requiere interactuar con recursos externos, como servidores web, bases de datos o sistemas de archivos, ya que estas operaciones pueden llevar tiempo y bloquear el flujo de ejecución si se realizaran de manera síncrona. JavaScript utiliza varios mecanismos para lograr el asincronismo:
+
+1) Callbacks:
+
+Guía de Callback Hell: http://callbackhell.com/
+
+Los callbacks son funciones que se pasan como argumentos a otras funciones y se ejecutan una vez que una operación asíncrona ha terminado. Aunque son efectivos, pueden llevar a un patrón llamado "callback hell", donde los callbacks anidados dificultan la legibilidad del código.
+
+Los callbacks desempeñan un papel crucial en el asincronismo de JavaScript al permitir que las operaciones asíncronas notifiquen y activen funciones una vez que han terminado. Un callback es simplemente una función que se pasa como argumento a otra función y se ejecuta en algún momento futuro, generalmente cuando se completa una operación asíncrona.
+
+Aquí está cómo funcionan los callbacks en el contexto del asincronismo de JavaScript:
+
+1. **Definición de una función que recibe un callback**:
+   Una función que realiza una operación asíncrona toma un callback como argumento. Esto se hace para especificar qué función debe ejecutarse cuando la operación asíncrona termine.
+
+2. **Ejecución de la operación asíncrona**:
+   La función asíncrona comienza a ejecutarse en segundo plano. Esto podría ser, por ejemplo, una solicitud a un servidor web o una espera de tiempo utilizando `setTimeout`.
+
+3. **Invocación del callback**:
+   Una vez que la operación asíncrona se completa, la función que la realizó invoca el callback proporcionado como argumento. Esto activa la ejecución del código dentro del callback.
+
+4. **Manejo de resultados o acciones adicionales**:
+   Dentro del callback, puedes manejar los resultados de la operación asíncrona o realizar acciones adicionales en función de esos resultados.
+
+Aquí hay un ejemplo simple que muestra cómo funcionan los callbacks en JavaScript:
+
+```javascript
+function procesoAsincrono(callback) {
+  setTimeout(() => {
+    console.log("Operación asíncrona completada");
+    callback();
+  }, 2000);
+}
+
+function callback() {
+  console.log("Callback ejecutado");
+}
+
+console.log("Inicio");
+
+procesoAsincrono(callback);
+
+console.log("Fin");
+```
+
+Las funciones de primera clase en JavaScript facilitan el asincronismo porque pueden tratarse como cualquier otro valor, como números o cadenas. Esto significa que puedes pasar funciones como argumentos a otras funciones, devolver funciones desde funciones y asignar funciones a variables. Esta capacidad es fundamental para implementar callbacks y otros mecanismos asincrónicos en JavaScript.
+
+2) Promesas
+
+Las promesas son objetos que representan un valor que puede estar disponible ahora, en el futuro o nunca. Proporcionan una sintaxis más limpia y estructurada para trabajar con operaciones asíncronas y manerar errores. Aquí hay un ejemplo:
+
+console.log("Inicio");
+
+function procesoAsincrono() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Proceso Asíncrono Terminado");
+      resolve();
+    }, 2000);
+  });
+}
+
+procesoAsincrono()
+  .then(() => {
+    console.log("Promesa resuelta");
+  })
+  .catch((error) => {
+    console.error("Error en la promesa:", error);
+  });
+
+console.log("Fin");
+
+
+3) Async/Await
+
+La sintaxsis async/await es una forma moderna y legible de trabajar con operaciones asíncronas en JavaScript. Las funciones marcadas como "async" pueden pausar su ejecución con la palabra clave "await" hasta que una promesa se resuelva. Estoy permite escribir código asincrónico de manera más similar a código síncrono. 
+
+console.log("Inicio");
+
+function esperar(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function procesoAsincrono() {
+  await esperar(2000);
+  console.log("Proceso Asíncrono Terminado");
+}
+
+async function ejecutar() {
+  await procesoAsincrono();
+  console.log("Fin");
+}
+
+ejecutar();
+
+
+EL MODELO DE JAVASCRIPT
+
+JavaScript fue diseñado para ser ejecutado en navegadores, trabajar con peticiones sobre la red y procesar las interacciones de usuario, al tiempo que se mantiene una interfaz fluida. Ser bloqueante o síncrono no ayudaría a conseguir estos objetivos, es por ello que Javascript ha evolucionado intencionalmente pensando en operaciones del tipo Input/Output. Por esta razón:
+
+- Javascript utiliza un modelo asíncrono y no bloqueante, con un loop de eventos implementado con un único thread para sus interfaces de entrada/salida.
+
+En el contexto de la programación, "I/O" significa "entrada/salida" (Input/Output en inglés). Se refiere al proceso de intercambio de datos entre un programa y el mundo exterior, que puede incluir dispositivos físicos como teclados, monitores, discos duros, así como conexiones de red y otros sistemas.
+
+En el caso de JavaScript, que generalmente se ejecuta en navegadores web o en entornos de servidor a través de plataformas como Node.js, la entrada/salida se maneja de manera asincrónica debido a la naturaleza basada en eventos del lenguaje. Esto significa que las operaciones de entrada/salida no bloquean la ejecución del programa mientras esperan que se completen.
+
+Algunos ejemplos de operaciones de entrada/salida en JavaScript incluyen:
+
+1. **Lectura y escritura de archivos:** En Node.js, puedes usar módulos como `fs` para trabajar con archivos en el sistema de archivos.
+
+2. **Solicitudes de red:** Puedes hacer solicitudes HTTP o realizar comunicaciones en red utilizando API como `fetch` en navegadores web o módulos específicos de red en Node.js.
+
+3. **Interacción con el usuario:** Esto se aplica especialmente a los navegadores, donde puedes obtener entrada del usuario a través de formularios, botones y otros elementos de la interfaz.
+
+4. **Temporizadores y eventos:** Crear temporizadores y manejar eventos también puede considerarse como operaciones de entrada/salida, ya que implican la interacción del programa con el sistema subyacente.
+
+Debido a la naturaleza asíncrona de JavaScript, es importante manejar adecuadamente las operaciones de entrada/salida para evitar bloqueos y asegurarse de que el programa continúe siendo receptivo y capaz de manejar múltiples tareas simultáneamente. Esto a menudo se logra mediante el uso de callbacks, promesas o, más recientemente, async/await para gestionar la asincronía de manera más legible y estructurada.
+
+_____________________________________________________________________________________________
+
+CLASE 16: AJAX Y FETCH
+
+AJAX, acrónimo de Asynchronous JavaScript And XML (JavaScript asíncrono y XML), es una técnica de desarrollo web para crear aplicaciones web asíncronas. Estas aplicaciones se ejecutan en el cliente, es decir, en el navegador de los usuarios mientras se mantiene la comunicación asíncrona con el servidor en segundo plano. De esta forma es posible interactuar con el servidor sin necesidad de recargar la página web, mejorando la interactividad, velocidad y usabilidad en las aplicaciones.
+
+Ajax es una tecnología asíncrona, en el sentido de que los datos adicionales se solicitan al servidor y se cargan en segundo plano sin interferir con la visualización ni el comportamiento de la página, aunque existe la posibilidad de configurar las peticiones como síncronas de tal forma que la interactividad de la página se detiene hasta la espera de la respuesta por parte del servidor.
+
+JavaScript es un lenguaje de programación (scripting language) en el que normalmente se efectúan las funciones de llamada de Ajax mientras que el acceso a los datos se realiza mediante XMLHttpRequest, objeto disponible en los navegadores actuales. En cualquier caso, no es necesario que el contenido asíncrono esté formateado en XML.
+
+Ajax es una técnica válida para múltiples plataformas y utilizable en muchos sistemas operativos y navegadores dado que está basado en estándares abiertos como JavaScript y Document Object Model (DOM).
+
+Aquí hay una explicación detallada del proceso de AJAX y cómo ha evolucionado el paradigma:
+
+Proceso de AJAX:
+
+Solicitud Inicial: Cuando un usuario realiza una acción en una página web, como hacer clic en un botón, el navegador genera una solicitud HTTP al servidor.
+
+Manejo del Servidor: El servidor procesa la solicitud y devuelve una respuesta, generalmente en formato JSON, XML o HTML. Esta respuesta puede contener datos actualizados o instrucciones para actualizar la interfaz.
+
+JavaScript en el Cliente: En lugar de cargar una página completamente nueva, se utiliza JavaScript en el navegador para procesar la respuesta del servidor y actualizar el contenido de la página de manera dinámica.
+
+Manipulación del DOM: El JavaScript manipula el Document Object Model (DOM) de la página web. Puede agregar, modificar o eliminar elementos del DOM para reflejar los cambios necesarios en la interfaz.
+
+Actualización Visual: Los cambios realizados en el DOM se muestran de manera instantánea en la página, lo que brinda una experiencia de usuario más rápida y suave.
+
+Evolución del Paradigma:
+
+A medida que las tecnologías web han avanzado, el paradigma de AJAX ha evolucionado para adaptarse a las demandas cambiantes de desarrollo y las expectativas de los usuarios:
+
+Ampliación de Funcionalidades: Además de XML, las respuestas del servidor ahora suelen estar en formato JSON, que es más ligero y fácil de analizar en JavaScript. Esto ha llevado a la popularización del término "AJAJ" (Asynchronous JavaScript and JSON).
+
+Librerías y Frameworks: Se han desarrollado librerías y frameworks como jQuery, Angular, React y Vue.js, que simplifican la implementación de AJAX y proporcionan estructuras más poderosas para construir aplicaciones web interactivas.
+
+HTML5 y APIs: HTML5 introdujo nuevas APIs como Fetch API y XMLHttpRequest Level 2, que ofrecen formas más modernas y flexibles de realizar solicitudes AJAX.
+
+SPA y PWAs: Con la creación de Single Page Applications (SPA) y Progressive Web Apps (PWA), las aplicaciones web modernas a menudo utilizan AJAX para cargar contenido de manera dinámica y proporcionar experiencias de usuario más cercanas a las aplicaciones nativas.
+
+Optimización de Rendimiento: Se han implementado técnicas como la compresión de datos, el almacenamiento en caché y la precarga de recursos para mejorar el rendimiento y la velocidad de las solicitudes AJAX.
+
+En resumen, AJAX es una técnica que ha revolucionado la forma en que los sitios web interactúan con los usuarios al permitir actualizaciones dinámicas sin recargar toda la página. A medida que las tecnologías web han avanzado, AJAX ha evolucionado para adaptarse a las necesidades cambiantes del desarrollo web y sigue siendo una parte fundamental en la creación de experiencias web interactivas y eficientes.
+
+--------------------------------------------------------------------
+
+MODELO CLIENTE - SERVIDOR
+
+El modelo cliente-servidor es un paradigma de arquitectura en el desarrollo de software que se utiliza ampliamente en aplicaciones web y sistemas distribuidos. En este modelo, un sistema se divide en dos componentes principales: el cliente y el servidor. Cada uno de estos componentes tiene roles y responsabilidades específicos en la interacción y el intercambio de información. AJAX se relaciona con este modelo al facilitar la comunicación asincrónica entre el cliente y el servidor para actualizar contenido en tiempo real en las aplicaciones web.
+
+Cliente:
+
+El cliente es la parte de la aplicación con la que interactúa directamente el usuario. Puede ser un navegador web, una aplicación móvil o cualquier otra interfaz de usuario.
+El cliente se encarga de presentar la información al usuario de manera amigable y de gestionar las interacciones del usuario, como hacer clic en botones, enviar formularios, etc.
+En el contexto web, el cliente generalmente utiliza tecnologías como HTML, CSS y JavaScript para crear la interfaz de usuario y manejar la interacción.
+Servidor:
+
+El servidor es la parte del sistema que gestiona la lógica de negocio, el almacenamiento de datos y las operaciones que requieren procesamiento del lado del servidor.
+Recibe solicitudes del cliente, procesa la información necesaria y proporciona respuestas adecuadas. Puede realizar cálculos, acceder a bases de datos y tomar decisiones basadas en la lógica de la aplicación.
+En el contexto web, el servidor suele ser un sistema que ejecuta un servidor web y aplicaciones back-end que se comunican con el cliente.
+Relación con AJAX:
+La relación entre el modelo cliente-servidor y AJAX se da en el contexto de la comunicación entre el cliente y el servidor en aplicaciones web. AJAX permite la comunicación asincrónica entre ambos componentes, lo que mejora la experiencia del usuario y reduce la necesidad de recargar páginas completas. Aquí hay cómo se relacionan:
+
+Solicitud del Cliente (Cliente): Cuando el usuario interactúa con la aplicación, el cliente genera solicitudes HTTP al se  rvidor para obtener o enviar datos.
+
+Procesamiento en el Servidor (Servidor): El servidor procesa las solicitudes del cliente, realiza acciones necesarias y prepara la respuesta.
+
+Respuesta del Servidor (Servidor): El servidor envía la respuesta al cliente, que generalmente contiene datos en formato JSON, XML o HTML.
+
+Manipulación en el Cliente (Cliente - AJAX): En lugar de recargar toda la página, el cliente utiliza AJAX para enviar solicitudes asincrónicas al servidor y recibir respuestas. JavaScript se encarga de manejar estas solicitudes y respuestas.
+
+Actualización de la Interfaz (Cliente - JavaScript): Con los datos recibidos a través de AJAX, JavaScript manipula el DOM de la página para actualizar el contenido de manera dinámica, lo que brinda una experiencia más fluida y rápida al usuario.
+
+En resumen, AJAX permite que el modelo cliente-servidor se aproveche al máximo en aplicaciones web, permitiendo interacciones asincrónicas que actualizan el contenido de la página sin recargarla por completo. Esto resulta en interfaces de usuario más dinámicas y responsivas.
+
+--------------------------------------------------------------
+
+PETICIONES HTTP
+
+Las peticiones HTTP (Hypertext Transfer Protocol) son un conjunto de mensajes que un cliente envía a un servidor para solicitar recursos o acciones específicas. HTTP es el protocolo utilizado en la World Wide Web para la comunicación entre navegadores web y servidores. Una petición HTTP es la base de la interacción entre el cliente (por ejemplo, un navegador web) y el servidor que aloja una aplicación web o sitio web.
+
+**Funcionamiento de una Petición HTTP:**
+
+1. **Inicio de la Solicitud:** Cuando un usuario ingresa una URL en la barra de direcciones del navegador, hace clic en un enlace o realiza una acción que requiere una interacción con el servidor, se inicia una petición HTTP.
+
+2. **Construcción de la Petición:** El navegador crea una petición HTTP que contiene información sobre qué recurso se está solicitando y cómo se quiere interactuar con él. Esta información se agrupa en varias partes dentro de la petición.
+
+3. **Envío de la Petición:** La petición HTTP se envía desde el cliente (navegador) al servidor. Esto se realiza a través de la red, utilizando el protocolo TCP/IP.
+
+4. **Procesamiento en el Servidor:** El servidor recibe la petición y la procesa. Realiza las acciones necesarias según la solicitud y los datos adjuntos.
+
+5. **Generación de la Respuesta:** Después de procesar la solicitud, el servidor genera una respuesta HTTP que contiene el recurso solicitado (como una página HTML, una imagen o datos) o información sobre el estado de la operación.
+
+6. **Envío de la Respuesta:** La respuesta HTTP se envía desde el servidor al cliente, siguiendo el mismo proceso de comunicación a través de la red.
+
+7. **Interpretación por el Cliente:** El cliente (navegador) interpreta la respuesta HTTP y realiza las acciones necesarias en función de su contenido. Puede mostrar una página web, cargar imágenes, ejecutar scripts, etc.
+
+**Partes de una Petición HTTP:**
+
+Una petición HTTP consta de varias partes clave:
+
+1. **Línea de Petición:** Contiene el método de solicitud (GET, POST, PUT, DELETE, etc.), la URL del recurso y la versión del protocolo HTTP.
+
+2. **Cabeceras (Headers):** Proporcionan información adicional sobre la solicitud, como el tipo de contenido aceptado, las cookies, la longitud del contenido, etc.
+
+3. **Cuerpo de la Petición:** Presente en solicitudes como POST o PUT, contiene los datos enviados al servidor. Puede ser información de formulario, datos en formato JSON, archivos adjuntos, etc.
+
+**Ejemplo de una Petición HTTP:**
+
+```
+GET /ejemplo/index.html HTTP/1.1
+Host: www.ejemplo.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+```
+
+En este ejemplo:
+- La línea de petición indica que se está realizando una solicitud GET a la URL `/ejemplo/index.html` utilizando HTTP/1.1.
+- Las cabeceras especifican el host, el agente de usuario (navegador) y los tipos de contenido aceptados.
+
+En resumen, las peticiones HTTP son la base de la comunicación entre clientes (navegadores) y servidores en la web. Están compuestas por varias partes, incluida la línea de petición, las cabeceras y, en algunos casos, el cuerpo de la petición. Estas peticiones permiten a los usuarios acceder a recursos y realizar acciones en aplicaciones y sitios web.
+
+------------------------------------------------
+
+URL
+
+Una URL (Uniform Resource Locator) es una cadena de caracteres que se utiliza para identificar de manera única una dirección en la web, como una página web, una imagen, un archivo, etc. Una URL se divide en varias partes, que indican la ubicación y el tipo de recurso al que se hace referencia. Las partes principales de una URL son las siguientes:
+
+1. **Esquema (Scheme)**: Indica el protocolo que se utilizará para acceder al recurso. Por ejemplo, "http", "https", "ftp", "mailto", etc.
+
+2. **Prefijo "://":** Este separador sigue al esquema y precede al resto de la URL.
+
+3. **Usuario y contraseña (Userinfo):** Algunas URLs incluyen información de autenticación, como un nombre de usuario y una contraseña, aunque este uso es menos común en la actualidad debido a preocupaciones de seguridad.
+
+4. **Nombre de host (Host):** Indica la dirección IP numérica o el nombre de dominio del servidor donde se encuentra el recurso. Por ejemplo, "www.ejemplo.com".
+
+5. **Puerto (Port):** Especifica el puerto en el servidor que se utilizará para la conexión. Si se omite, se usa el puerto predeterminado asociado al esquema (por ejemplo, el puerto 80 para HTTP).
+
+6. **Ruta (Path):** Especifica la ubicación del recurso en el servidor. Puede ser una estructura jerárquica de directorios y subdirectorios.
+
+7. **Consulta (Query):** Contiene parámetros de consulta para enviar al recurso. Se utiliza principalmente en las URL de las páginas web para enviar información adicional al servidor.
+
+8. **Fragmento (Fragment):** Identifica una sección específica dentro del recurso, como un ancla en una página HTML. No se envía al servidor, sino que se utiliza en el lado del cliente.
+
+En resumen, una URL completa tiene la siguiente estructura:
+
+```
+esquema://usuario:contraseña@nombre_de_host:puerto/ruta?consulta#fragmento
+```
+
+Es importante mencionar que no todas las partes son obligatorias en una URL. Por ejemplo, las partes de usuario y contraseña son menos comunes debido a preocupaciones de seguridad y las partes de puerto, consulta y fragmento pueden ser opcionales según el recurso al que se acceda.
+
+-----------------------------------------------------------------------
+
+PETICIONES HTTP EN JAVASCRIPT
+
+En JavaScript, puedes realizar peticiones HTTP utilizando el objeto `XMLHttpRequest` o la API `Fetch`. Ambas opciones te permiten comunicarte con servidores y obtener o enviar datos de manera asincrónica. Aquí tienes una explicación y ejemplos de ambas opciones:
+
+### Usando XMLHttpRequest:
+
+El objeto `XMLHttpRequest` te permite realizar peticiones HTTP de manera asincrónica en JavaScript. Aquí tienes un ejemplo básico de cómo usarlo para realizar una solicitud GET:
+
+```javascript
+// Crear una instancia de XMLHttpRequest
+var xhr = new XMLHttpRequest();
+
+// Definir la función de manejo de eventos para cuando la solicitud se complete
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    // La respuesta del servidor está disponible en xhr.responseText
+    console.log(xhr.responseText);
+  }
+};
+
+// Abrir la solicitud
+xhr.open("GET", "https://api.example.com/data", true);
+
+// Enviar la solicitud
+xhr.send();
+```
+
+### Usando Fetch API:
+
+La API `Fetch` es una forma más moderna y flexible de realizar peticiones HTTP en JavaScript. Proporciona una interfaz más sencilla y promesas para manejar respuestas. Aquí tienes un ejemplo de cómo usar `Fetch` para realizar una solicitud GET:
+
+```javascript
+// Realizar una solicitud GET
+fetch("https://api.example.com/data")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json(); // Parsear la respuesta como JSON
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("Fetch error:", error);
+  });
+```
+
+Si deseas realizar una solicitud POST con datos JSON utilizando `Fetch`:
+
+```javascript
+var dataToSend = {
+  key1: "value1",
+  key2: "value2"
+};
+
+fetch("https://api.example.com/submit", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(dataToSend)
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("Fetch error:", error);
+  });
+```
+
+En ambos ejemplos, el código en el bloque `.then` maneja la respuesta del servidor. En el caso de `Fetch`, también se utiliza `.catch` para manejar errores de red o de solicitud.
+
+Ambas opciones, `XMLHttpRequest` y `Fetch`, te permiten realizar peticiones HTTP y manejar las respuestas de manera efectiva en aplicaciones web. Sin embargo, `Fetch` es una opción más moderna y recomendada en la mayoría de los casos debido a su simplicidad y compatibilidad con las promesas de JavaScript.
+
+
+--------------------------------------------------------------
+
+Restricciones de llamados a archivos json con fetch:
+
+La restricción que impide hacer solicitudes Fetch a archivos locales en tu computadora está relacionada con la política de seguridad del navegador, conocida como la política de mismo origen (Same-Origin Policy). Esta política está diseñada para proteger a los usuarios al evitar que sitios web maliciosos accedan a recursos locales o privados en tu computadora sin tu consentimiento.
+
+La política de mismo origen establece que una página web solo puede realizar solicitudes a recursos (como archivos, imágenes o datos) ubicados en el mismo origen (protocolo, dominio y puerto) que la página web en sí. Esto significa que si estás cargando una página web desde una ubicación local (por ejemplo, usando el prefijo `file://` en la URL), no podrás hacer solicitudes Fetch a recursos locales utilizando rutas relativas o absolutas en tu sistema de archivos.
+
+Esta restricción es una medida de seguridad importante, ya que evita que sitios web maliciosos o no autorizados accedan a información confidencial de tu computadora.
+
+Para realizar pruebas y desarrollo local, puedes considerar usar un servidor web local, como el servidor proporcionado por la extensión "Live Server" en Visual Studio Code, o instalar herramientas como XAMPP, WAMP o Node.js para configurar un servidor local. Esto permitirá que tu página web sea cargada a través de un servidor local en lugar de acceder a ella directamente desde el sistema de archivos, lo que te permitirá realizar solicitudes Fetch a recursos dentro del mismo servidor local.

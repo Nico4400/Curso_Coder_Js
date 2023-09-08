@@ -1,0 +1,193 @@
+/* Resetear estilos predeterminados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales de la página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos del encabezado */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos del carrusel */
+.swiper-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide {
+  flex: 0 0 20%;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Estilos de los botones de navegación del carrusel */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 40px;
+  height: 40px;
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+/* Estilos de la barra de desplazamiento del carrusel */
+.swiper-scrollbar {
+  width: 4px;
+  background-color: #007BFF;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+/* Estilos del carrito de compras */
+.carrito {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.carrito-agregados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.carrito h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Estilos de los productos */
+.productos-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.tarjeta {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(25% - 20px); /* Tamaño más pequeño para las tarjetas */
+    box-sizing: border-box;
+}
+
+.container-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container-precio h2 {
+    font-size: 16px; /* Tamaño de fuente más pequeño */
+    color: #007BFF;
+    margin-top: 8px; /* Espacio más pequeño en la parte superior */
+}
+
+h3 {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    margin-top: 8px; /* Espacio más pequeño en la parte superior */
+}
+
+.container-info {
+    margin-top: 8px; /* Espacio más pequeño en la parte superior */
+}
+
+.container-categoria {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    color: #777;
+    margin-bottom: 4px; /* Espacio más pequeño en la parte inferior */
+}
+
+/* Estilos del formulario de filtrar por categoría */
+form {
+  margin-top: 20px;
+}
+
+#select-categoria {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilos de los botones Agregar al Carrito */
+.form-agregarCarrito {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.agregarCarrito {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilos de los botones Eliminar del Carrito */
+.form-sacarCarrito {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Toastify Styles */
+.Toastify__toast-container {
+  top: 20px;
+  right: 20px;
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(to right, #00b09b, #96c93d);
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(to right, #fe5656, #8a0211);
+}
