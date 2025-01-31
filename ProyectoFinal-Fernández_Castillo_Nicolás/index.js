@@ -5,7 +5,7 @@ const swiper = new Swiper('.swiper', {
     grid: {
         rows: 1
     },
-    spaceBetween: 30,
+    spaceBetween: 10,
     loop: true,    
 
     // Navigation arrows
@@ -30,6 +30,13 @@ fetch("https://fakestoreapi.com/products")
 .then( response => response.json())
 .then( productos => {
     console.log(productos)
+
+    // Función para cortar las primeras 10 palabras de la descripción
+    // function cortarDescripcion(descripcion) {
+    //     const palabras = descripcion.split(" ");  // Divide la descripción en palabras
+    //     const primerasPalabras = palabras.slice(0, 10); // Toma las primeras 10 palabras
+    //     return primerasPalabras.join(" ") + (palabras.length > 10 ? "..." : ""); // Junta las palabras y añade "..." si hay más de 10 palabras
+    // }
     
     function dom (item) { 
         return `
